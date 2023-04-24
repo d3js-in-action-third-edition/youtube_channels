@@ -9,6 +9,7 @@
     "d3-scale": "^4.0.2",
     "d3-selection": "^3.0.0",
     "d3-transition": "^3.0.1",
+    "gh-pages": "^5.0.0",
     "parcel": "^2.8.3"
   }
 }
