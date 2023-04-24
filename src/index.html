@@ -13,10 +13,29 @@
 		<h1>50 Most Popular YouTube Channels</h1>
 		<p class="intro">Add intro here</p>
 
-		<h2>How to read this visualization</h2>
-		<h3>Categories</h3>
-		<div id="categories-legend"></div>
-		<div id="viz"></div>
+		<div class="row">
+			<div class="col col-2">
+				<div class="sticky-container">
+					<div class="sticky">
+						<div class="legend-section">
+							<h2>Categories</h2>
+							<div id="categories-legend"></div>
+						</div>
+						<div class="legend-section">
+							<h2>Number of subscribers</h2>
+							<div id="radius-legend"></div>
+						</div>
+						<div class="legend-section">
+							<h2>Language & Brand</h2>
+							<div class="language-legend"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col col-10">
+				<div id="viz"></div>
+			</div>
+		</div>
 
 		<div class="source">
 			<h2>Data sources</h2>

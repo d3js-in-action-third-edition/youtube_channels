@@ -560,29 +560,54 @@ function hmrAccept(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _ytChannelsJson = require("../data/yt_channels.json");
 var _ytChannelsJsonDefault = parcelHelpers.interopDefault(_ytChannelsJson);
+var _d3Array = require("d3-array");
+var _scales = require("./scales");
 var _legends = require("./legends");
 var _viz = require("./viz");
 console.log("channels", (0, _ytChannelsJsonDefault.default));
-(0, _legends.drawLegends)();
+const maxSubcribers = (0, _d3Array.max)((0, _ytChannelsJsonDefault.default), (d)=>d.subscribers_millions);
+(0, _scales.initializeRadiusScale)(maxSubcribers);
+(0, _legends.drawLegends)(maxSubcribers);
 (0, _viz.drawViz)((0, _ytChannelsJsonDefault.default));
 
-},{"../data/yt_channels.json":"lbGiK","./legends":"8UkzY","./viz":"hXwQz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lbGiK":[function(require,module,exports) {
-module.exports = JSON.parse('[{"uid":0,"Rank":1,"Name":"T-Series","Link":"https://www.youtube.com/@tseries","Brand channel":"Yes","Subscribers (millions)":238,"Primary language":"Hindi","Category":"Music","Country":"India"},{"uid":1,"Rank":2,"Name":"Cocomelon","Link":"https://www.youtube.com/@CoComelon","Brand channel":"Yes","Subscribers (millions)":155,"Primary language":"English","Category":"Kids","Country":"United States"},{"uid":2,"Rank":3,"Name":"Sony Entertainment Television India","Link":"https://www.youtube.com/@SETIndia","Brand channel":"Yes","Subscribers (millions)":153,"Primary language":"Hindi","Category":"Entertainment","Country":"India"},{"uid":3,"Rank":4,"Name":"MrBeast","Link":"https://www.youtube.com/@MrBeast","Brand channel":"No","Subscribers (millions)":137,"Primary language":"English","Category":"Entertainment","Country":"United States"},{"uid":4,"Rank":5,"Name":"PewDiePie","Link":"https://www.youtube.com/@PewDiePie","Brand channel":"No","Subscribers (millions)":111,"Primary language":"English","Category":"Games","Country":"Sweden"},{"uid":5,"Rank":6,"Name":"Kids Diana Show","Link":"https://www.youtube.com/@KidsDianaShow","Brand channel":"Yes","Subscribers (millions)":109,"Primary language":"English","Category":"Kids","Country":"Ukraine"},{"uid":6,"Rank":7,"Name":"Like Nastya","Link":"https://www.youtube.com/@LikeNastyaofficial","Brand channel":"No","Subscribers (millions)":105,"Primary language":"English","Category":"Kids","Country":"United States"},{"uid":7,"Rank":8,"Name":"Vlad and Niki","Link":"https://www.youtube.com/@VladandNiki","Brand channel":"No","Subscribers (millions)":94.9,"Primary language":"English","Category":"Kids","Country":"Russia"},{"uid":8,"Rank":9,"Name":"WWE","Link":"https://www.youtube.com/@WWE","Brand channel":"Yes","Subscribers (millions)":93.8,"Primary language":"English","Category":"Sports","Country":"United States"},{"uid":9,"Rank":10,"Name":"Zee Music Company","Link":"https://www.youtube.com/@zeemusiccompany","Brand channel":"Yes","Subscribers (millions)":93.4,"Primary language":"Hindi","Category":"Music","Country":"India"},{"uid":10,"Rank":11,"Name":"Blackpink","Link":"https://www.youtube.com/@BlackPink","Brand channel":"Yes","Subscribers (millions)":84.8,"Primary language":"Korean","Category":"Music","Country":"South Korea"},{"uid":11,"Rank":12,"Name":"Goldmines","Link":"https://www.youtube.com/@GoldminesTelefilms","Brand channel":"Yes","Subscribers (millions)":83.3,"Primary language":"Hindi","Category":"Film","Country":"India"},{"uid":12,"Rank":13,"Name":"5-Minute Crafts","Link":"https://www.youtube.com/@5MinuteCraftsYouTube","Brand channel":"Yes","Subscribers (millions)":79.2,"Primary language":"English","Category":"How-to","Country":"Cyprus"},{"uid":13,"Rank":14,"Name":"Sony SAB","Link":"https://www.youtube.com/@SonySAB","Brand channel":"Yes","Subscribers (millions)":78.2,"Primary language":"Hindi","Category":"Entertainment","Country":"India"},{"uid":14,"Rank":15,"Name":"BangtanTV","Link":"https://www.youtube.com/@BTS","Brand channel":"No","Subscribers (millions)":73.9,"Primary language":"Korean","Category":"Music","Country":"South Korea"},{"uid":15,"Rank":16,"Name":"Justin Bieber","Link":"https://www.youtube.com/@justinbieber","Brand channel":"No","Subscribers (millions)":71.1,"Primary language":"English","Category":"Music","Country":"Canada"},{"uid":16,"Rank":17,"Name":"Hybe Labels","Link":"https://www.youtube.com/@HYBELABELS","Brand channel":"Yes","Subscribers (millions)":69.5,"Primary language":"Korean","Category":"Music","Country":"South Korea"},{"uid":17,"Rank":18,"Name":"Canal KondZilla","Link":"https://www.youtube.com/@KondZilla","Brand channel":"Yes","Subscribers (millions)":66.4,"Primary language":"Portuguese","Category":"Music","Country":"Brazil"},{"uid":18,"Rank":19,"Name":"Zee TV","Link":"https://www.youtube.com/@zeetv","Brand channel":"Yes","Subscribers (millions)":66.3,"Primary language":"Hindi","Category":"Entertainment","Country":"India"},{"uid":19,"Rank":20,"Name":"Pinkfong","Link":"https://www.youtube.com/@Pinkfong","Brand channel":"Yes","Subscribers (millions)":66.1,"Primary language":"English","Category":"Kids","Country":"South Korea"},{"uid":20,"Rank":21,"Name":"Shemaroo Entertainment","Link":"https://www.youtube.com/@shemaroo","Brand channel":"Yes","Subscribers (millions)":64.2,"Primary language":"Hindi","Category":"Music","Country":"India"},{"uid":21,"Rank":22,"Name":"ChuChu TV","Link":"https://www.youtube.com/@ChuChuTV","Brand channel":"Yes","Subscribers (millions)":63.2,"Primary language":"Hindi","Category":"Kids","Country":"India"},{"uid":22,"Rank":23,"Name":"Colors TV","Link":"https://www.youtube.com/@colorstv","Brand channel":"Yes","Subscribers (millions)":60.6,"Primary language":"Hindi","Category":"Entertainment","Country":"India"},{"uid":23,"Rank":24,"Name":"Dude Perfect","Link":"https://www.youtube.com/@dudeperfect","Brand channel":"No","Subscribers (millions)":59,"Primary language":"English","Category":"Sports","Country":"United States"},{"uid":24,"Rank":25,"Name":"Movieclips","Link":"https://www.youtube.com/@MOVIECLIPS","Brand channel":"Yes","Subscribers (millions)":58.8,"Primary language":"English","Category":"Film","Country":"United States"},{"uid":25,"Rank":26,"Name":"T-Series Bhakti Sagar","Link":"https://www.youtube.com/@TSeriesBhaktiSagar","Brand channel":"Yes","Subscribers (millions)":58.4,"Primary language":"Hindi","Category":"Music","Country":"India"},{"uid":26,"Rank":27,"Name":"Tips Industries","Link":"https://www.youtube.com/@tipsofficial","Brand channel":"Yes","Subscribers (millions)":57.3,"Primary language":"Hindi","Category":"Entertainment","Country":"India"},{"uid":27,"Rank":28,"Name":"Wave Music","Link":"https://www.youtube.com/@wavemusic","Brand channel":"Yes","Subscribers (millions)":56.6,"Primary language":"Bhojpuri","Category":"Music","Country":"India"},{"uid":28,"Rank":29,"Name":"Marshmello","Link":"https://www.youtube.com/@marshmello","Brand channel":"No","Subscribers (millions)":56.2,"Primary language":"English","Category":"Music","Country":"United States"},{"uid":29,"Rank":30,"Name":"Sony Music India","Link":"https://www.youtube.com/@SonyMusicIndia","Brand channel":"Yes","Subscribers (millions)":56.1,"Primary language":"Hindi","Category":"Music","Country":"India"},{"uid":30,"Rank":31,"Name":"El Reino Infantil","Link":"https://www.youtube.com/@ElReinoInfantil","Brand channel":"Yes","Subscribers (millions)":56,"Primary language":"Spanish","Category":"Kids","Country":"Argentina"},{"uid":31,"Rank":32,"Name":"Aaj Tak","Link":"https://www.youtube.com/@aajtak","Brand channel":"Yes","Subscribers (millions)":55.9,"Primary language":"Hindi","Category":"News","Country":"India"},{"uid":32,"Rank":33,"Name":"Eminem","Link":"https://www.youtube.com/channel/UCfM3zsQsOnfWNUppiycmBuw","Brand channel":"No","Subscribers (millions)":55.6,"Primary language":"English","Category":"Music","Country":"United States"},{"uid":33,"Rank":34,"Name":"LooLoo Kids","Link":"https://www.youtube.com/@LooLooKids","Brand channel":"Yes","Subscribers (millions)":53.1,"Primary language":"English","Category":"Kids","Country":"Romania"},{"uid":34,"Rank":35,"Name":"Ed Sheeran","Link":"https://www.youtube.com/channel/UC0C-w0YjGpqDXGB8IHb662A","Brand channel":"No","Subscribers (millions)":53,"Primary language":"English","Category":"Music","Country":"United Kingdom"},{"uid":35,"Rank":36,"Name":"Yash Raj Films","Link":"https://www.youtube.com/@yrf","Brand channel":"Yes","Subscribers (millions)":52.7,"Primary language":"Hindi","Category":"Music","Country":"India"},{"uid":36,"Rank":37,"Name":"Ariana Grande","Link":"https://www.youtube.com/@ArianaGrande","Brand channel":"No","Subscribers (millions)":52.4,"Primary language":"English","Category":"Music","Country":"United States"},{"uid":37,"Rank":38,"Name":"Taylor Swift","Link":"https://www.youtube.com/@TaylorSwift","Brand channel":"No","Subscribers (millions)":51.1,"Primary language":"English","Category":"Music","Country":"United States"},{"uid":38,"Rank":39,"Name":"BillionSurpriseToys","Link":"https://www.youtube.com/@BillionSurpriseToys","Brand channel":"Yes","Subscribers (millions)":50.6,"Primary language":"English","Category":"Kids","Country":"United States"},{"uid":39,"Rank":40,"Name":"Infobells","Link":"https://www.youtube.com/@infobellshindirhymes","Brand channel":"Yes","Subscribers (millions)":49.8,"Primary language":"Hindi","Category":"Kids","Country":"India"},{"uid":40,"Rank":41,"Name":"JuegaGerman","Link":"https://www.youtube.com/@JuegaGerman","Brand channel":"No","Subscribers (millions)":47.6,"Primary language":"Spanish","Category":"Games","Country":"Chile"},{"uid":41,"Rank":42,"Name":"Billie Eilish","Link":"https://www.youtube.com/@BillieEilish","Brand channel":"No","Subscribers (millions)":47.4,"Primary language":"English","Category":"Music","Country":"United States"},{"uid":42,"Rank":43,"Name":"Badabun","Link":"https://www.youtube.com/@badabunOficial","Brand channel":"Yes","Subscribers (millions)":46.5,"Primary language":"Spanish","Category":"Entertainment","Country":"Mexico"},{"uid":43,"Rank":44,"Name":"Fernanfloo","Link":"https://www.youtube.com/@Fernanfloo","Brand channel":"No","Subscribers (millions)":45.7,"Primary language":"Spanish","Category":"Games","Country":"El Salvador"},{"uid":44,"Rank":45,"Name":"Bad Bunny","Link":"https://www.youtube.com/@BadBunnyPR","Brand channel":"No","Subscribers (millions)":45.4,"Primary language":"Spanish","Category":"Music","Country":"United States (\xa0Puerto Rico)"},{"uid":45,"Rank":46,"Name":"SonyMusicIndiaVEVO","Link":"https://www.youtube.com/@sonymusicindiaVEVO","Brand channel":"Yes","Subscribers (millions)":45.4,"Primary language":"Hindi","Category":"Music","Country":"India"},{"uid":46,"Rank":47,"Name":"Shemaroo","Link":"https://www.youtube.com/@shemaroo","Brand channel":"Yes","Subscribers (millions)":45.2,"Primary language":"Hindi","Category":"Entertainment","Country":"India"},{"uid":47,"Rank":48,"Name":"Get Movies","Link":"https://www.youtube.com/@getmovies","Brand channel":"Yes","Subscribers (millions)":45,"Primary language":"Russian","Category":"Kids","Country":"Russia"},{"uid":48,"Rank":49,"Name":"Felipe Neto","Link":"https://www.youtube.com/@felipeneto","Brand channel":"No","Subscribers (millions)":44.9,"Primary language":"Portuguese","Category":"Entertainment","Country":"Brazil"},{"uid":49,"Rank":50,"Name":"A4","Link":"https://www.youtube.com/@A4a4a4a4","Brand channel":"No","Subscribers (millions)":44.6,"Primary language":"Russian","Category":"Entertainment","Country":"Belarus"}]');
+},{"../data/yt_channels.json":"lbGiK","./legends":"8UkzY","./viz":"hXwQz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","d3-array":"1yX2W","./scales":"NYsfE"}],"lbGiK":[function(require,module,exports) {
+module.exports = JSON.parse('[{"uid":0,"rank":1,"name":"T-Series","link":"https://www.youtube.com/@tseries","isBrandChannel":true,"subscribers_millions":238,"primary_language":"Hindi","category":"Music","country":"India","id":"t-series"},{"uid":1,"rank":2,"name":"Cocomelon","link":"https://www.youtube.com/@CoComelon","isBrandChannel":true,"subscribers_millions":155,"primary_language":"English","category":"Kids","country":"United States","id":"cocomelon"},{"uid":2,"rank":3,"name":"Sony Entertainment Television India","link":"https://www.youtube.com/@SETIndia","isBrandChannel":true,"subscribers_millions":153,"primary_language":"Hindi","category":"Entertainment","country":"India","id":"sony_entertainment_television_india"},{"uid":3,"rank":4,"name":"MrBeast","link":"https://www.youtube.com/@MrBeast","isBrandChannel":false,"subscribers_millions":137,"primary_language":"English","category":"Entertainment","country":"United States","id":"mrbeast"},{"uid":4,"rank":5,"name":"PewDiePie","link":"https://www.youtube.com/@PewDiePie","isBrandChannel":false,"subscribers_millions":111,"primary_language":"English","category":"Games","country":"Sweden","id":"pewdiepie"},{"uid":5,"rank":6,"name":"Kids Diana Show","link":"https://www.youtube.com/@KidsDianaShow","isBrandChannel":true,"subscribers_millions":109,"primary_language":"English","category":"Kids","country":"Ukraine","id":"kids_diana_show"},{"uid":6,"rank":7,"name":"Like Nastya","link":"https://www.youtube.com/@LikeNastyaofficial","isBrandChannel":false,"subscribers_millions":105,"primary_language":"English","category":"Kids","country":"United States","id":"like_nastya"},{"uid":7,"rank":8,"name":"Vlad and Niki","link":"https://www.youtube.com/@VladandNiki","isBrandChannel":false,"subscribers_millions":94.9,"primary_language":"English","category":"Kids","country":"Russia","id":"vlad_and_niki"},{"uid":8,"rank":9,"name":"WWE","link":"https://www.youtube.com/@WWE","isBrandChannel":true,"subscribers_millions":93.8,"primary_language":"English","category":"Sports","country":"United States","id":"wwe"},{"uid":9,"rank":10,"name":"Zee Music Company","link":"https://www.youtube.com/@zeemusiccompany","isBrandChannel":true,"subscribers_millions":93.4,"primary_language":"Hindi","category":"Music","country":"India","id":"zee_music_company"},{"uid":10,"rank":11,"name":"Blackpink","link":"https://www.youtube.com/@BlackPink","isBrandChannel":true,"subscribers_millions":84.8,"primary_language":"Korean","category":"Music","country":"South Korea","id":"blackpink"},{"uid":11,"rank":12,"name":"Goldmines","link":"https://www.youtube.com/@GoldminesTelefilms","isBrandChannel":true,"subscribers_millions":83.3,"primary_language":"Hindi","category":"Film","country":"India","id":"goldmines"},{"uid":12,"rank":13,"name":"5-Minute Crafts","link":"https://www.youtube.com/@5MinuteCraftsYouTube","isBrandChannel":true,"subscribers_millions":79.2,"primary_language":"English","category":"How-to","country":"Cyprus","id":"five-minute_crafts"},{"uid":13,"rank":14,"name":"Sony SAB","link":"https://www.youtube.com/@SonySAB","isBrandChannel":true,"subscribers_millions":78.2,"primary_language":"Hindi","category":"Entertainment","country":"India","id":"sony_sab"},{"uid":14,"rank":15,"name":"BangtanTV","link":"https://www.youtube.com/@BTS","isBrandChannel":false,"subscribers_millions":73.9,"primary_language":"Korean","category":"Music","country":"South Korea","id":"bangtantv"},{"uid":15,"rank":16,"name":"Justin Bieber","link":"https://www.youtube.com/@justinbieber","isBrandChannel":false,"subscribers_millions":71.1,"primary_language":"English","category":"Music","country":"Canada","id":"justin_bieber"},{"uid":16,"rank":17,"name":"Hybe Labels","link":"https://www.youtube.com/@HYBELABELS","isBrandChannel":true,"subscribers_millions":69.5,"primary_language":"Korean","category":"Music","country":"South Korea","id":"hybe_labels"},{"uid":17,"rank":18,"name":"Canal KondZilla","link":"https://www.youtube.com/@KondZilla","isBrandChannel":true,"subscribers_millions":66.4,"primary_language":"Portuguese","category":"Music","country":"Brazil","id":"canal_kondzilla"},{"uid":18,"rank":19,"name":"Zee TV","link":"https://www.youtube.com/@zeetv","isBrandChannel":true,"subscribers_millions":66.3,"primary_language":"Hindi","category":"Entertainment","country":"India","id":"zee_tv"},{"uid":19,"rank":20,"name":"Pinkfong","link":"https://www.youtube.com/@Pinkfong","isBrandChannel":true,"subscribers_millions":66.1,"primary_language":"English","category":"Kids","country":"South Korea","id":"pinkfong"},{"uid":20,"rank":21,"name":"Shemaroo Entertainment","link":"https://www.youtube.com/@shemaroo","isBrandChannel":true,"subscribers_millions":64.2,"primary_language":"Hindi","category":"Music","country":"India","id":"shemaroo_entertainment"},{"uid":21,"rank":22,"name":"ChuChu TV","link":"https://www.youtube.com/@ChuChuTV","isBrandChannel":true,"subscribers_millions":63.2,"primary_language":"Hindi","category":"Kids","country":"India","id":"chuchu_tv"},{"uid":22,"rank":23,"name":"Colors TV","link":"https://www.youtube.com/@colorstv","isBrandChannel":true,"subscribers_millions":60.6,"primary_language":"Hindi","category":"Entertainment","country":"India","id":"colors_tv"},{"uid":23,"rank":24,"name":"Dude Perfect","link":"https://www.youtube.com/@dudeperfect","isBrandChannel":false,"subscribers_millions":59,"primary_language":"English","category":"Sports","country":"United States","id":"dude_perfect"},{"uid":24,"rank":25,"name":"Movieclips","link":"https://www.youtube.com/@MOVIECLIPS","isBrandChannel":true,"subscribers_millions":58.8,"primary_language":"English","category":"Film","country":"United States","id":"movieclips"},{"uid":25,"rank":26,"name":"T-Series Bhakti Sagar","link":"https://www.youtube.com/@TSeriesBhaktiSagar","isBrandChannel":true,"subscribers_millions":58.4,"primary_language":"Hindi","category":"Music","country":"India","id":"t-series_bhakti_sagar"},{"uid":26,"rank":27,"name":"Tips Industries","link":"https://www.youtube.com/@tipsofficial","isBrandChannel":true,"subscribers_millions":57.3,"primary_language":"Hindi","category":"Entertainment","country":"India","id":"tips_industries"},{"uid":27,"rank":28,"name":"Wave Music","link":"https://www.youtube.com/@wavemusic","isBrandChannel":true,"subscribers_millions":56.6,"primary_language":"Bhojpuri","category":"Music","country":"India","id":"wave_music"},{"uid":28,"rank":29,"name":"Marshmello","link":"https://www.youtube.com/@marshmello","isBrandChannel":false,"subscribers_millions":56.2,"primary_language":"English","category":"Music","country":"United States","id":"marshmello"},{"uid":29,"rank":30,"name":"Sony Music India","link":"https://www.youtube.com/@SonyMusicIndia","isBrandChannel":true,"subscribers_millions":56.1,"primary_language":"Hindi","category":"Music","country":"India","id":"sony_music_india"},{"uid":30,"rank":31,"name":"El Reino Infantil","link":"https://www.youtube.com/@ElReinoInfantil","isBrandChannel":true,"subscribers_millions":56,"primary_language":"Spanish","category":"Kids","country":"Argentina","id":"el_reino_infantil"},{"uid":31,"rank":32,"name":"Aaj Tak","link":"https://www.youtube.com/@aajtak","isBrandChannel":true,"subscribers_millions":55.9,"primary_language":"Hindi","category":"News","country":"India","id":"aaj_tak"},{"uid":32,"rank":33,"name":"Eminem","link":"https://www.youtube.com/channel/UCfM3zsQsOnfWNUppiycmBuw","isBrandChannel":false,"subscribers_millions":55.6,"primary_language":"English","category":"Music","country":"United States","id":"eminem"},{"uid":33,"rank":34,"name":"LooLoo Kids","link":"https://www.youtube.com/@LooLooKids","isBrandChannel":true,"subscribers_millions":53.1,"primary_language":"English","category":"Kids","country":"Romania","id":"looloo_kids"},{"uid":34,"rank":35,"name":"Ed Sheeran","link":"https://www.youtube.com/channel/UC0C-w0YjGpqDXGB8IHb662A","isBrandChannel":false,"subscribers_millions":53,"primary_language":"English","category":"Music","country":"United Kingdom","id":"ed_sheeran"},{"uid":35,"rank":36,"name":"Yash Raj Films","link":"https://www.youtube.com/@yrf","isBrandChannel":true,"subscribers_millions":52.7,"primary_language":"Hindi","category":"Music","country":"India","id":"yash_raj_films"},{"uid":36,"rank":37,"name":"Ariana Grande","link":"https://www.youtube.com/@ArianaGrande","isBrandChannel":false,"subscribers_millions":52.4,"primary_language":"English","category":"Music","country":"United States","id":"ariana_grande"},{"uid":37,"rank":38,"name":"Taylor Swift","link":"https://www.youtube.com/@TaylorSwift","isBrandChannel":false,"subscribers_millions":51.1,"primary_language":"English","category":"Music","country":"United States","id":"taylor_swift"},{"uid":38,"rank":39,"name":"BillionSurpriseToys","link":"https://www.youtube.com/@BillionSurpriseToys","isBrandChannel":true,"subscribers_millions":50.6,"primary_language":"English","category":"Kids","country":"United States","id":"billionsurprisetoys"},{"uid":39,"rank":40,"name":"Infobells","link":"https://www.youtube.com/@infobellshindirhymes","isBrandChannel":true,"subscribers_millions":49.8,"primary_language":"Hindi","category":"Kids","country":"India","id":"infobells"},{"uid":40,"rank":41,"name":"JuegaGerman","link":"https://www.youtube.com/@JuegaGerman","isBrandChannel":false,"subscribers_millions":47.6,"primary_language":"Spanish","category":"Games","country":"Chile","id":"juegagerman"},{"uid":41,"rank":42,"name":"Billie Eilish","link":"https://www.youtube.com/@BillieEilish","isBrandChannel":false,"subscribers_millions":47.4,"primary_language":"English","category":"Music","country":"United States","id":"billie_eilish"},{"uid":42,"rank":43,"name":"Badabun","link":"https://www.youtube.com/@badabunOficial","isBrandChannel":true,"subscribers_millions":46.5,"primary_language":"Spanish","category":"Entertainment","country":"Mexico","id":"badabun"},{"uid":43,"rank":44,"name":"Fernanfloo","link":"https://www.youtube.com/@Fernanfloo","isBrandChannel":false,"subscribers_millions":45.7,"primary_language":"Spanish","category":"Games","country":"El Salvador","id":"fernanfloo"},{"uid":44,"rank":45,"name":"Bad Bunny","link":"https://www.youtube.com/@BadBunnyPR","isBrandChannel":false,"subscribers_millions":45.4,"primary_language":"Spanish","category":"Music","country":"United States (\xa0Puerto Rico)","id":"bad_bunny"},{"uid":45,"rank":46,"name":"SonyMusicIndiaVEVO","link":"https://www.youtube.com/@sonymusicindiaVEVO","isBrandChannel":true,"subscribers_millions":45.4,"primary_language":"Hindi","category":"Music","country":"India","id":"sonymusicindiavevo"},{"uid":46,"rank":47,"name":"Shemaroo","link":"https://www.youtube.com/@shemaroo","isBrandChannel":true,"subscribers_millions":45.2,"primary_language":"Hindi","category":"Entertainment","country":"India","id":"shemaroo"},{"uid":47,"rank":48,"name":"Get Movies","link":"https://www.youtube.com/@getmovies","isBrandChannel":true,"subscribers_millions":45,"primary_language":"Russian","category":"Kids","country":"Russia","id":"get_movies"},{"uid":48,"rank":49,"name":"Felipe Neto","link":"https://www.youtube.com/@felipeneto","isBrandChannel":false,"subscribers_millions":44.9,"primary_language":"Portuguese","category":"Entertainment","country":"Brazil","id":"felipe_neto"},{"uid":49,"rank":50,"name":"A4","link":"https://www.youtube.com/@A4a4a4a4","isBrandChannel":false,"subscribers_millions":44.6,"primary_language":"Russian","category":"Entertainment","country":"Belarus","id":"a4"}]');
 
 },{}],"8UkzY":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "drawLegends", ()=>drawLegends);
 var _helpers = require("./helpers");
+var _scales = require("./scales");
 var _d3Selection = require("d3-selection");
-const drawLegends = ()=>{
+const drawLegends = (max)=>{
     // Categories color legend
     const color = (0, _d3Selection.select)("#categories-legend").append("ul").selectAll(".category").data((0, _helpers.categories)).join("li").attr("class", "category");
     color.append("span").attr("class", "color").style("background-color", (d)=>d.color);
     color.append("span").attr("class", "label").text((d)=>d.id);
+    // Circle size legend
+    const medium = 100;
+    const min = 40;
+    const maxRadius = (0, _scales.radiusScale)(max, max);
+    const mediumRadius = (0, _scales.radiusScale)(medium, max);
+    const minRadius = (0, _scales.radiusScale)(min, max);
+    const legendRadius = (0, _d3Selection.select)("#radius-legend").append("svg").attr("width", 150).attr("height", 150).append("g").attr("transform", "translate(1, 10)");
+    const legendCircles = legendRadius.append("g").attr("fill", "transparent").attr("stroke", "#09131b");
+    legendCircles.append("circle").attr("cx", maxRadius).attr("cy", maxRadius).attr("r", maxRadius);
+    legendCircles.append("circle").attr("cx", maxRadius).attr("cy", 2 * maxRadius - mediumRadius).attr("r", mediumRadius);
+    legendCircles.append("circle").attr("cx", maxRadius).attr("cy", 2 * maxRadius - minRadius).attr("r", minRadius);
+    const linesLength = (0, _scales.radiusScale)(max) + 20;
+    const legendLines = legendRadius.append("g").attr("stroke", "#09131b").attr("stroke-dasharray", "6 4");
+    legendLines.append("line").attr("x1", maxRadius).attr("y1", 0).attr("x2", maxRadius + linesLength).attr("y2", 0);
+    legendLines.append("line").attr("x1", maxRadius).attr("y1", 2 * maxRadius - 2 * mediumRadius).attr("x2", maxRadius + linesLength).attr("y2", 2 * maxRadius - 2 * mediumRadius);
+    legendLines.append("line").attr("x1", maxRadius).attr("y1", 2 * maxRadius - 2 * minRadius).attr("x2", maxRadius + linesLength).attr("y2", 2 * maxRadius - 2 * minRadius);
+    const labels = legendRadius.append("g").attr("fill", "#09131b").attr("dominant-baseline", "middle").style("font-size", "1.6rem");
+    labels.append("text").attr("x", maxRadius + linesLength + 5).attr("y", 0).text(max);
+    labels.append("text").attr("x", maxRadius + linesLength + 5).attr("y", 2 * maxRadius - 2 * mediumRadius).text(medium);
+    labels.append("text").attr("x", maxRadius + linesLength + 5).attr("y", 2 * maxRadius - 2 * minRadius).text(min);
 };
 
-},{"./helpers":"hGI1E","d3-selection":"gn9gd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hGI1E":[function(require,module,exports) {
+},{"./helpers":"hGI1E","d3-selection":"gn9gd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./scales":"NYsfE"}],"hGI1E":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "categories", ()=>categories);
@@ -1699,15 +1724,2128 @@ exports.default = function*() {
     }
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hXwQz":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"NYsfE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "colorScale", ()=>colorScale);
+parcelHelpers.export(exports, "radiusScale", ()=>radiusScale);
+parcelHelpers.export(exports, "initializeRadiusScale", ()=>initializeRadiusScale);
+var _d3Scale = require("d3-scale");
+var _helpers = require("./helpers");
+const colorScale = (0, _d3Scale.scaleOrdinal)().domain((0, _helpers.categories).map((d)=>d.id)).range((0, _helpers.categories).map((d)=>d.color));
+const radiusScale = (0, _d3Scale.scaleRadial)();
+const initializeRadiusScale = (maxSubscribers)=>{
+    radiusScale.domain([
+        0,
+        maxSubscribers
+    ]).range([
+        0,
+        50
+    ]);
+};
+
+},{"d3-scale":"UQ8g3","./helpers":"hGI1E","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"UQ8g3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "scaleBand", ()=>(0, _bandJsDefault.default));
+parcelHelpers.export(exports, "scalePoint", ()=>(0, _bandJs.point));
+parcelHelpers.export(exports, "scaleIdentity", ()=>(0, _identityJsDefault.default));
+parcelHelpers.export(exports, "scaleLinear", ()=>(0, _linearJsDefault.default));
+parcelHelpers.export(exports, "scaleLog", ()=>(0, _logJsDefault.default));
+parcelHelpers.export(exports, "scaleSymlog", ()=>(0, _symlogJsDefault.default));
+parcelHelpers.export(exports, "scaleOrdinal", ()=>(0, _ordinalJsDefault.default));
+parcelHelpers.export(exports, "scaleImplicit", ()=>(0, _ordinalJs.implicit));
+parcelHelpers.export(exports, "scalePow", ()=>(0, _powJsDefault.default));
+parcelHelpers.export(exports, "scaleSqrt", ()=>(0, _powJs.sqrt));
+parcelHelpers.export(exports, "scaleRadial", ()=>(0, _radialJsDefault.default));
+parcelHelpers.export(exports, "scaleQuantile", ()=>(0, _quantileJsDefault.default));
+parcelHelpers.export(exports, "scaleQuantize", ()=>(0, _quantizeJsDefault.default));
+parcelHelpers.export(exports, "scaleThreshold", ()=>(0, _thresholdJsDefault.default));
+parcelHelpers.export(exports, "scaleTime", ()=>(0, _timeJsDefault.default));
+parcelHelpers.export(exports, "scaleUtc", ()=>(0, _utcTimeJsDefault.default));
+parcelHelpers.export(exports, "scaleSequential", ()=>(0, _sequentialJsDefault.default));
+parcelHelpers.export(exports, "scaleSequentialLog", ()=>(0, _sequentialJs.sequentialLog));
+parcelHelpers.export(exports, "scaleSequentialPow", ()=>(0, _sequentialJs.sequentialPow));
+parcelHelpers.export(exports, "scaleSequentialSqrt", ()=>(0, _sequentialJs.sequentialSqrt));
+parcelHelpers.export(exports, "scaleSequentialSymlog", ()=>(0, _sequentialJs.sequentialSymlog));
+parcelHelpers.export(exports, "scaleSequentialQuantile", ()=>(0, _sequentialQuantileJsDefault.default));
+parcelHelpers.export(exports, "scaleDiverging", ()=>(0, _divergingJsDefault.default));
+parcelHelpers.export(exports, "scaleDivergingLog", ()=>(0, _divergingJs.divergingLog));
+parcelHelpers.export(exports, "scaleDivergingPow", ()=>(0, _divergingJs.divergingPow));
+parcelHelpers.export(exports, "scaleDivergingSqrt", ()=>(0, _divergingJs.divergingSqrt));
+parcelHelpers.export(exports, "scaleDivergingSymlog", ()=>(0, _divergingJs.divergingSymlog));
+parcelHelpers.export(exports, "tickFormat", ()=>(0, _tickFormatJsDefault.default));
+var _bandJs = require("./band.js");
+var _bandJsDefault = parcelHelpers.interopDefault(_bandJs);
+var _identityJs = require("./identity.js");
+var _identityJsDefault = parcelHelpers.interopDefault(_identityJs);
+var _linearJs = require("./linear.js");
+var _linearJsDefault = parcelHelpers.interopDefault(_linearJs);
+var _logJs = require("./log.js");
+var _logJsDefault = parcelHelpers.interopDefault(_logJs);
+var _symlogJs = require("./symlog.js");
+var _symlogJsDefault = parcelHelpers.interopDefault(_symlogJs);
+var _ordinalJs = require("./ordinal.js");
+var _ordinalJsDefault = parcelHelpers.interopDefault(_ordinalJs);
+var _powJs = require("./pow.js");
+var _powJsDefault = parcelHelpers.interopDefault(_powJs);
+var _radialJs = require("./radial.js");
+var _radialJsDefault = parcelHelpers.interopDefault(_radialJs);
+var _quantileJs = require("./quantile.js");
+var _quantileJsDefault = parcelHelpers.interopDefault(_quantileJs);
+var _quantizeJs = require("./quantize.js");
+var _quantizeJsDefault = parcelHelpers.interopDefault(_quantizeJs);
+var _thresholdJs = require("./threshold.js");
+var _thresholdJsDefault = parcelHelpers.interopDefault(_thresholdJs);
+var _timeJs = require("./time.js");
+var _timeJsDefault = parcelHelpers.interopDefault(_timeJs);
+var _utcTimeJs = require("./utcTime.js");
+var _utcTimeJsDefault = parcelHelpers.interopDefault(_utcTimeJs);
+var _sequentialJs = require("./sequential.js");
+var _sequentialJsDefault = parcelHelpers.interopDefault(_sequentialJs);
+var _sequentialQuantileJs = require("./sequentialQuantile.js");
+var _sequentialQuantileJsDefault = parcelHelpers.interopDefault(_sequentialQuantileJs);
+var _divergingJs = require("./diverging.js");
+var _divergingJsDefault = parcelHelpers.interopDefault(_divergingJs);
+var _tickFormatJs = require("./tickFormat.js");
+var _tickFormatJsDefault = parcelHelpers.interopDefault(_tickFormatJs);
+
+},{"./band.js":false,"./identity.js":false,"./linear.js":"lob4K","./log.js":false,"./symlog.js":false,"./ordinal.js":"hNjKg","./pow.js":false,"./radial.js":"8e44u","./quantile.js":false,"./quantize.js":false,"./threshold.js":false,"./time.js":false,"./utcTime.js":false,"./sequential.js":false,"./sequentialQuantile.js":false,"./diverging.js":false,"./tickFormat.js":"ahQef","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lob4K":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "linearish", ()=>linearish);
+var _d3Array = require("d3-array");
+var _continuousJs = require("./continuous.js");
+var _continuousJsDefault = parcelHelpers.interopDefault(_continuousJs);
+var _initJs = require("./init.js");
+var _tickFormatJs = require("./tickFormat.js");
+var _tickFormatJsDefault = parcelHelpers.interopDefault(_tickFormatJs);
+function linearish(scale) {
+    var domain = scale.domain;
+    scale.ticks = function(count) {
+        var d = domain();
+        return (0, _d3Array.ticks)(d[0], d[d.length - 1], count == null ? 10 : count);
+    };
+    scale.tickFormat = function(count, specifier) {
+        var d = domain();
+        return (0, _tickFormatJsDefault.default)(d[0], d[d.length - 1], count == null ? 10 : count, specifier);
+    };
+    scale.nice = function(count) {
+        if (count == null) count = 10;
+        var d = domain();
+        var i0 = 0;
+        var i1 = d.length - 1;
+        var start = d[i0];
+        var stop = d[i1];
+        var prestep;
+        var step;
+        var maxIter = 10;
+        if (stop < start) {
+            step = start, start = stop, stop = step;
+            step = i0, i0 = i1, i1 = step;
+        }
+        while(maxIter-- > 0){
+            step = (0, _d3Array.tickIncrement)(start, stop, count);
+            if (step === prestep) {
+                d[i0] = start;
+                d[i1] = stop;
+                return domain(d);
+            } else if (step > 0) {
+                start = Math.floor(start / step) * step;
+                stop = Math.ceil(stop / step) * step;
+            } else if (step < 0) {
+                start = Math.ceil(start * step) / step;
+                stop = Math.floor(stop * step) / step;
+            } else break;
+            prestep = step;
+        }
+        return scale;
+    };
+    return scale;
+}
+function linear() {
+    var scale = (0, _continuousJsDefault.default)();
+    scale.copy = function() {
+        return (0, _continuousJs.copy)(scale, linear());
+    };
+    (0, _initJs.initRange).apply(scale, arguments);
+    return linearish(scale);
+}
+exports.default = linear;
+
+},{"d3-array":"1yX2W","./continuous.js":"1LsCM","./init.js":"kp8lc","./tickFormat.js":"ahQef","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1yX2W":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "bisect", ()=>(0, _bisectJsDefault.default));
+parcelHelpers.export(exports, "bisectRight", ()=>(0, _bisectJs.bisectRight));
+parcelHelpers.export(exports, "bisectLeft", ()=>(0, _bisectJs.bisectLeft));
+parcelHelpers.export(exports, "bisectCenter", ()=>(0, _bisectJs.bisectCenter));
+parcelHelpers.export(exports, "ascending", ()=>(0, _ascendingJsDefault.default));
+parcelHelpers.export(exports, "bisector", ()=>(0, _bisectorJsDefault.default));
+parcelHelpers.export(exports, "blur", ()=>(0, _blurJs.blur));
+parcelHelpers.export(exports, "blur2", ()=>(0, _blurJs.blur2));
+parcelHelpers.export(exports, "blurImage", ()=>(0, _blurJs.blurImage));
+parcelHelpers.export(exports, "count", ()=>(0, _countJsDefault.default));
+parcelHelpers.export(exports, "cross", ()=>(0, _crossJsDefault.default));
+parcelHelpers.export(exports, "cumsum", ()=>(0, _cumsumJsDefault.default));
+parcelHelpers.export(exports, "descending", ()=>(0, _descendingJsDefault.default));
+parcelHelpers.export(exports, "deviation", ()=>(0, _deviationJsDefault.default));
+parcelHelpers.export(exports, "extent", ()=>(0, _extentJsDefault.default));
+parcelHelpers.export(exports, "Adder", ()=>(0, _fsumJs.Adder));
+parcelHelpers.export(exports, "fsum", ()=>(0, _fsumJs.fsum));
+parcelHelpers.export(exports, "fcumsum", ()=>(0, _fsumJs.fcumsum));
+parcelHelpers.export(exports, "group", ()=>(0, _groupJsDefault.default));
+parcelHelpers.export(exports, "flatGroup", ()=>(0, _groupJs.flatGroup));
+parcelHelpers.export(exports, "flatRollup", ()=>(0, _groupJs.flatRollup));
+parcelHelpers.export(exports, "groups", ()=>(0, _groupJs.groups));
+parcelHelpers.export(exports, "index", ()=>(0, _groupJs.index));
+parcelHelpers.export(exports, "indexes", ()=>(0, _groupJs.indexes));
+parcelHelpers.export(exports, "rollup", ()=>(0, _groupJs.rollup));
+parcelHelpers.export(exports, "rollups", ()=>(0, _groupJs.rollups));
+parcelHelpers.export(exports, "groupSort", ()=>(0, _groupSortJsDefault.default));
+parcelHelpers.export(exports, "bin", ()=>(0, _binJsDefault.default)) // Deprecated; use bin.
+;
+parcelHelpers.export(exports, "histogram", ()=>(0, _binJsDefault.default));
+parcelHelpers.export(exports, "thresholdFreedmanDiaconis", ()=>(0, _freedmanDiaconisJsDefault.default));
+parcelHelpers.export(exports, "thresholdScott", ()=>(0, _scottJsDefault.default));
+parcelHelpers.export(exports, "thresholdSturges", ()=>(0, _sturgesJsDefault.default));
+parcelHelpers.export(exports, "max", ()=>(0, _maxJsDefault.default));
+parcelHelpers.export(exports, "maxIndex", ()=>(0, _maxIndexJsDefault.default));
+parcelHelpers.export(exports, "mean", ()=>(0, _meanJsDefault.default));
+parcelHelpers.export(exports, "median", ()=>(0, _medianJsDefault.default));
+parcelHelpers.export(exports, "medianIndex", ()=>(0, _medianJs.medianIndex));
+parcelHelpers.export(exports, "merge", ()=>(0, _mergeJsDefault.default));
+parcelHelpers.export(exports, "min", ()=>(0, _minJsDefault.default));
+parcelHelpers.export(exports, "minIndex", ()=>(0, _minIndexJsDefault.default));
+parcelHelpers.export(exports, "mode", ()=>(0, _modeJsDefault.default));
+parcelHelpers.export(exports, "nice", ()=>(0, _niceJsDefault.default));
+parcelHelpers.export(exports, "pairs", ()=>(0, _pairsJsDefault.default));
+parcelHelpers.export(exports, "permute", ()=>(0, _permuteJsDefault.default));
+parcelHelpers.export(exports, "quantile", ()=>(0, _quantileJsDefault.default));
+parcelHelpers.export(exports, "quantileIndex", ()=>(0, _quantileJs.quantileIndex));
+parcelHelpers.export(exports, "quantileSorted", ()=>(0, _quantileJs.quantileSorted));
+parcelHelpers.export(exports, "quickselect", ()=>(0, _quickselectJsDefault.default));
+parcelHelpers.export(exports, "range", ()=>(0, _rangeJsDefault.default));
+parcelHelpers.export(exports, "rank", ()=>(0, _rankJsDefault.default));
+parcelHelpers.export(exports, "least", ()=>(0, _leastJsDefault.default));
+parcelHelpers.export(exports, "leastIndex", ()=>(0, _leastIndexJsDefault.default));
+parcelHelpers.export(exports, "greatest", ()=>(0, _greatestJsDefault.default));
+parcelHelpers.export(exports, "greatestIndex", ()=>(0, _greatestIndexJsDefault.default));
+parcelHelpers.export(exports, "scan", ()=>(0, _scanJsDefault.default)) // Deprecated; use leastIndex.
+;
+parcelHelpers.export(exports, "shuffle", ()=>(0, _shuffleJsDefault.default));
+parcelHelpers.export(exports, "shuffler", ()=>(0, _shuffleJs.shuffler));
+parcelHelpers.export(exports, "sum", ()=>(0, _sumJsDefault.default));
+parcelHelpers.export(exports, "ticks", ()=>(0, _ticksJsDefault.default));
+parcelHelpers.export(exports, "tickIncrement", ()=>(0, _ticksJs.tickIncrement));
+parcelHelpers.export(exports, "tickStep", ()=>(0, _ticksJs.tickStep));
+parcelHelpers.export(exports, "transpose", ()=>(0, _transposeJsDefault.default));
+parcelHelpers.export(exports, "variance", ()=>(0, _varianceJsDefault.default));
+parcelHelpers.export(exports, "zip", ()=>(0, _zipJsDefault.default));
+parcelHelpers.export(exports, "every", ()=>(0, _everyJsDefault.default));
+parcelHelpers.export(exports, "some", ()=>(0, _someJsDefault.default));
+parcelHelpers.export(exports, "filter", ()=>(0, _filterJsDefault.default));
+parcelHelpers.export(exports, "map", ()=>(0, _mapJsDefault.default));
+parcelHelpers.export(exports, "reduce", ()=>(0, _reduceJsDefault.default));
+parcelHelpers.export(exports, "reverse", ()=>(0, _reverseJsDefault.default));
+parcelHelpers.export(exports, "sort", ()=>(0, _sortJsDefault.default));
+parcelHelpers.export(exports, "difference", ()=>(0, _differenceJsDefault.default));
+parcelHelpers.export(exports, "disjoint", ()=>(0, _disjointJsDefault.default));
+parcelHelpers.export(exports, "intersection", ()=>(0, _intersectionJsDefault.default));
+parcelHelpers.export(exports, "subset", ()=>(0, _subsetJsDefault.default));
+parcelHelpers.export(exports, "superset", ()=>(0, _supersetJsDefault.default));
+parcelHelpers.export(exports, "union", ()=>(0, _unionJsDefault.default));
+parcelHelpers.export(exports, "InternMap", ()=>(0, _internmap.InternMap));
+parcelHelpers.export(exports, "InternSet", ()=>(0, _internmap.InternSet));
+var _bisectJs = require("./bisect.js");
+var _bisectJsDefault = parcelHelpers.interopDefault(_bisectJs);
+var _ascendingJs = require("./ascending.js");
+var _ascendingJsDefault = parcelHelpers.interopDefault(_ascendingJs);
+var _bisectorJs = require("./bisector.js");
+var _bisectorJsDefault = parcelHelpers.interopDefault(_bisectorJs);
+var _blurJs = require("./blur.js");
+var _countJs = require("./count.js");
+var _countJsDefault = parcelHelpers.interopDefault(_countJs);
+var _crossJs = require("./cross.js");
+var _crossJsDefault = parcelHelpers.interopDefault(_crossJs);
+var _cumsumJs = require("./cumsum.js");
+var _cumsumJsDefault = parcelHelpers.interopDefault(_cumsumJs);
+var _descendingJs = require("./descending.js");
+var _descendingJsDefault = parcelHelpers.interopDefault(_descendingJs);
+var _deviationJs = require("./deviation.js");
+var _deviationJsDefault = parcelHelpers.interopDefault(_deviationJs);
+var _extentJs = require("./extent.js");
+var _extentJsDefault = parcelHelpers.interopDefault(_extentJs);
+var _fsumJs = require("./fsum.js");
+var _groupJs = require("./group.js");
+var _groupJsDefault = parcelHelpers.interopDefault(_groupJs);
+var _groupSortJs = require("./groupSort.js");
+var _groupSortJsDefault = parcelHelpers.interopDefault(_groupSortJs);
+var _binJs = require("./bin.js");
+var _binJsDefault = parcelHelpers.interopDefault(_binJs);
+var _freedmanDiaconisJs = require("./threshold/freedmanDiaconis.js");
+var _freedmanDiaconisJsDefault = parcelHelpers.interopDefault(_freedmanDiaconisJs);
+var _scottJs = require("./threshold/scott.js");
+var _scottJsDefault = parcelHelpers.interopDefault(_scottJs);
+var _sturgesJs = require("./threshold/sturges.js");
+var _sturgesJsDefault = parcelHelpers.interopDefault(_sturgesJs);
+var _maxJs = require("./max.js");
+var _maxJsDefault = parcelHelpers.interopDefault(_maxJs);
+var _maxIndexJs = require("./maxIndex.js");
+var _maxIndexJsDefault = parcelHelpers.interopDefault(_maxIndexJs);
+var _meanJs = require("./mean.js");
+var _meanJsDefault = parcelHelpers.interopDefault(_meanJs);
+var _medianJs = require("./median.js");
+var _medianJsDefault = parcelHelpers.interopDefault(_medianJs);
+var _mergeJs = require("./merge.js");
+var _mergeJsDefault = parcelHelpers.interopDefault(_mergeJs);
+var _minJs = require("./min.js");
+var _minJsDefault = parcelHelpers.interopDefault(_minJs);
+var _minIndexJs = require("./minIndex.js");
+var _minIndexJsDefault = parcelHelpers.interopDefault(_minIndexJs);
+var _modeJs = require("./mode.js");
+var _modeJsDefault = parcelHelpers.interopDefault(_modeJs);
+var _niceJs = require("./nice.js");
+var _niceJsDefault = parcelHelpers.interopDefault(_niceJs);
+var _pairsJs = require("./pairs.js");
+var _pairsJsDefault = parcelHelpers.interopDefault(_pairsJs);
+var _permuteJs = require("./permute.js");
+var _permuteJsDefault = parcelHelpers.interopDefault(_permuteJs);
+var _quantileJs = require("./quantile.js");
+var _quantileJsDefault = parcelHelpers.interopDefault(_quantileJs);
+var _quickselectJs = require("./quickselect.js");
+var _quickselectJsDefault = parcelHelpers.interopDefault(_quickselectJs);
+var _rangeJs = require("./range.js");
+var _rangeJsDefault = parcelHelpers.interopDefault(_rangeJs);
+var _rankJs = require("./rank.js");
+var _rankJsDefault = parcelHelpers.interopDefault(_rankJs);
+var _leastJs = require("./least.js");
+var _leastJsDefault = parcelHelpers.interopDefault(_leastJs);
+var _leastIndexJs = require("./leastIndex.js");
+var _leastIndexJsDefault = parcelHelpers.interopDefault(_leastIndexJs);
+var _greatestJs = require("./greatest.js");
+var _greatestJsDefault = parcelHelpers.interopDefault(_greatestJs);
+var _greatestIndexJs = require("./greatestIndex.js");
+var _greatestIndexJsDefault = parcelHelpers.interopDefault(_greatestIndexJs);
+var _scanJs = require("./scan.js");
+var _scanJsDefault = parcelHelpers.interopDefault(_scanJs);
+var _shuffleJs = require("./shuffle.js");
+var _shuffleJsDefault = parcelHelpers.interopDefault(_shuffleJs);
+var _sumJs = require("./sum.js");
+var _sumJsDefault = parcelHelpers.interopDefault(_sumJs);
+var _ticksJs = require("./ticks.js");
+var _ticksJsDefault = parcelHelpers.interopDefault(_ticksJs);
+var _transposeJs = require("./transpose.js");
+var _transposeJsDefault = parcelHelpers.interopDefault(_transposeJs);
+var _varianceJs = require("./variance.js");
+var _varianceJsDefault = parcelHelpers.interopDefault(_varianceJs);
+var _zipJs = require("./zip.js");
+var _zipJsDefault = parcelHelpers.interopDefault(_zipJs);
+var _everyJs = require("./every.js");
+var _everyJsDefault = parcelHelpers.interopDefault(_everyJs);
+var _someJs = require("./some.js");
+var _someJsDefault = parcelHelpers.interopDefault(_someJs);
+var _filterJs = require("./filter.js");
+var _filterJsDefault = parcelHelpers.interopDefault(_filterJs);
+var _mapJs = require("./map.js");
+var _mapJsDefault = parcelHelpers.interopDefault(_mapJs);
+var _reduceJs = require("./reduce.js");
+var _reduceJsDefault = parcelHelpers.interopDefault(_reduceJs);
+var _reverseJs = require("./reverse.js");
+var _reverseJsDefault = parcelHelpers.interopDefault(_reverseJs);
+var _sortJs = require("./sort.js");
+var _sortJsDefault = parcelHelpers.interopDefault(_sortJs);
+var _differenceJs = require("./difference.js");
+var _differenceJsDefault = parcelHelpers.interopDefault(_differenceJs);
+var _disjointJs = require("./disjoint.js");
+var _disjointJsDefault = parcelHelpers.interopDefault(_disjointJs);
+var _intersectionJs = require("./intersection.js");
+var _intersectionJsDefault = parcelHelpers.interopDefault(_intersectionJs);
+var _subsetJs = require("./subset.js");
+var _subsetJsDefault = parcelHelpers.interopDefault(_subsetJs);
+var _supersetJs = require("./superset.js");
+var _supersetJsDefault = parcelHelpers.interopDefault(_supersetJs);
+var _unionJs = require("./union.js");
+var _unionJsDefault = parcelHelpers.interopDefault(_unionJs);
+var _internmap = require("internmap");
+
+},{"./bisect.js":"2jqf4","./ascending.js":"2iZSL","./bisector.js":"1BY0F","./blur.js":false,"./count.js":false,"./cross.js":false,"./cumsum.js":false,"./descending.js":"dpgkj","./deviation.js":false,"./extent.js":false,"./fsum.js":false,"./group.js":false,"./groupSort.js":false,"./bin.js":false,"./threshold/freedmanDiaconis.js":false,"./threshold/scott.js":false,"./threshold/sturges.js":false,"./max.js":"6b1uv","./maxIndex.js":false,"./mean.js":false,"./median.js":false,"./merge.js":false,"./min.js":false,"./minIndex.js":false,"./mode.js":false,"./nice.js":false,"./pairs.js":false,"./permute.js":false,"./quantile.js":false,"./quickselect.js":false,"./range.js":false,"./rank.js":false,"./least.js":false,"./leastIndex.js":false,"./greatest.js":false,"./greatestIndex.js":false,"./scan.js":false,"./shuffle.js":false,"./sum.js":false,"./ticks.js":"iDfKX","./transpose.js":false,"./variance.js":false,"./zip.js":false,"./every.js":false,"./some.js":false,"./filter.js":false,"./map.js":false,"./reduce.js":false,"./reverse.js":false,"./sort.js":false,"./difference.js":false,"./disjoint.js":false,"./intersection.js":false,"./subset.js":false,"./superset.js":false,"./union.js":false,"internmap":"a6b0X","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2jqf4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "bisectRight", ()=>bisectRight);
+parcelHelpers.export(exports, "bisectLeft", ()=>bisectLeft);
+parcelHelpers.export(exports, "bisectCenter", ()=>bisectCenter);
+var _ascendingJs = require("./ascending.js");
+var _ascendingJsDefault = parcelHelpers.interopDefault(_ascendingJs);
+var _bisectorJs = require("./bisector.js");
+var _bisectorJsDefault = parcelHelpers.interopDefault(_bisectorJs);
+var _numberJs = require("./number.js");
+var _numberJsDefault = parcelHelpers.interopDefault(_numberJs);
+const ascendingBisect = (0, _bisectorJsDefault.default)((0, _ascendingJsDefault.default));
+const bisectRight = ascendingBisect.right;
+const bisectLeft = ascendingBisect.left;
+const bisectCenter = (0, _bisectorJsDefault.default)((0, _numberJsDefault.default)).center;
+exports.default = bisectRight;
+
+},{"./ascending.js":"2iZSL","./bisector.js":"1BY0F","./number.js":"imr9T","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2iZSL":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function ascending(a, b) {
+    return a == null || b == null ? NaN : a < b ? -1 : a > b ? 1 : a >= b ? 0 : NaN;
+}
+exports.default = ascending;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1BY0F":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _ascendingJs = require("./ascending.js");
+var _ascendingJsDefault = parcelHelpers.interopDefault(_ascendingJs);
+var _descendingJs = require("./descending.js");
+var _descendingJsDefault = parcelHelpers.interopDefault(_descendingJs);
+function bisector(f) {
+    let compare1, compare2, delta;
+    // If an accessor is specified, promote it to a comparator. In this case we
+    // can test whether the search value is (self-) comparable. We can’t do this
+    // for a comparator (except for specific, known comparators) because we can’t
+    // tell if the comparator is symmetric, and an asymmetric comparator can’t be
+    // used to test whether a single value is comparable.
+    if (f.length !== 2) {
+        compare1 = (0, _ascendingJsDefault.default);
+        compare2 = (d, x)=>(0, _ascendingJsDefault.default)(f(d), x);
+        delta = (d, x)=>f(d) - x;
+    } else {
+        compare1 = f === (0, _ascendingJsDefault.default) || f === (0, _descendingJsDefault.default) ? f : zero;
+        compare2 = f;
+        delta = f;
+    }
+    function left(a, x, lo = 0, hi = a.length) {
+        if (lo < hi) {
+            if (compare1(x, x) !== 0) return hi;
+            do {
+                const mid = lo + hi >>> 1;
+                if (compare2(a[mid], x) < 0) lo = mid + 1;
+                else hi = mid;
+            }while (lo < hi);
+        }
+        return lo;
+    }
+    function right(a, x, lo = 0, hi = a.length) {
+        if (lo < hi) {
+            if (compare1(x, x) !== 0) return hi;
+            do {
+                const mid = lo + hi >>> 1;
+                if (compare2(a[mid], x) <= 0) lo = mid + 1;
+                else hi = mid;
+            }while (lo < hi);
+        }
+        return lo;
+    }
+    function center(a, x, lo = 0, hi = a.length) {
+        const i = left(a, x, lo, hi - 1);
+        return i > lo && delta(a[i - 1], x) > -delta(a[i], x) ? i - 1 : i;
+    }
+    return {
+        left,
+        center,
+        right
+    };
+}
+exports.default = bisector;
+function zero() {
+    return 0;
+}
+
+},{"./ascending.js":"2iZSL","./descending.js":"dpgkj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dpgkj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function descending(a, b) {
+    return a == null || b == null ? NaN : b < a ? -1 : b > a ? 1 : b >= a ? 0 : NaN;
+}
+exports.default = descending;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"imr9T":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "numbers", ()=>numbers);
+function number(x) {
+    return x === null ? NaN : +x;
+}
+exports.default = number;
+function* numbers(values, valueof) {
+    if (valueof === undefined) {
+        for (let value of values)if (value != null && (value = +value) >= value) yield value;
+    } else {
+        let index = -1;
+        for (let value of values)if ((value = valueof(value, ++index, values)) != null && (value = +value) >= value) yield value;
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6b1uv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function max(values, valueof) {
+    let max;
+    if (valueof === undefined) {
+        for (const value of values)if (value != null && (max < value || max === undefined && value >= value)) max = value;
+    } else {
+        let index = -1;
+        for (let value of values)if ((value = valueof(value, ++index, values)) != null && (max < value || max === undefined && value >= value)) max = value;
+    }
+    return max;
+}
+exports.default = max;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iDfKX":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "tickIncrement", ()=>tickIncrement);
+parcelHelpers.export(exports, "tickStep", ()=>tickStep);
+const e10 = Math.sqrt(50), e5 = Math.sqrt(10), e2 = Math.sqrt(2);
+function tickSpec(start, stop, count) {
+    const step = (stop - start) / Math.max(0, count), power = Math.floor(Math.log10(step)), error = step / Math.pow(10, power), factor = error >= e10 ? 10 : error >= e5 ? 5 : error >= e2 ? 2 : 1;
+    let i1, i2, inc;
+    if (power < 0) {
+        inc = Math.pow(10, -power) / factor;
+        i1 = Math.round(start * inc);
+        i2 = Math.round(stop * inc);
+        if (i1 / inc < start) ++i1;
+        if (i2 / inc > stop) --i2;
+        inc = -inc;
+    } else {
+        inc = Math.pow(10, power) * factor;
+        i1 = Math.round(start / inc);
+        i2 = Math.round(stop / inc);
+        if (i1 * inc < start) ++i1;
+        if (i2 * inc > stop) --i2;
+    }
+    if (i2 < i1 && 0.5 <= count && count < 2) return tickSpec(start, stop, count * 2);
+    return [
+        i1,
+        i2,
+        inc
+    ];
+}
+function ticks(start, stop, count) {
+    stop = +stop, start = +start, count = +count;
+    if (!(count > 0)) return [];
+    if (start === stop) return [
+        start
+    ];
+    const reverse = stop < start, [i1, i2, inc] = reverse ? tickSpec(stop, start, count) : tickSpec(start, stop, count);
+    if (!(i2 >= i1)) return [];
+    const n = i2 - i1 + 1, ticks = new Array(n);
+    if (reverse) {
+        if (inc < 0) for(let i = 0; i < n; ++i)ticks[i] = (i2 - i) / -inc;
+        else for(let i = 0; i < n; ++i)ticks[i] = (i2 - i) * inc;
+    } else {
+        if (inc < 0) for(let i = 0; i < n; ++i)ticks[i] = (i1 + i) / -inc;
+        else for(let i = 0; i < n; ++i)ticks[i] = (i1 + i) * inc;
+    }
+    return ticks;
+}
+exports.default = ticks;
+function tickIncrement(start, stop, count) {
+    stop = +stop, start = +start, count = +count;
+    return tickSpec(start, stop, count)[2];
+}
+function tickStep(start, stop, count) {
+    stop = +stop, start = +start, count = +count;
+    const reverse = stop < start, inc = reverse ? tickIncrement(stop, start, count) : tickIncrement(start, stop, count);
+    return (reverse ? -1 : 1) * (inc < 0 ? 1 / -inc : inc);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a6b0X":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "InternMap", ()=>InternMap);
+parcelHelpers.export(exports, "InternSet", ()=>InternSet);
+class InternMap extends Map {
+    constructor(entries, key = keyof){
+        super();
+        Object.defineProperties(this, {
+            _intern: {
+                value: new Map()
+            },
+            _key: {
+                value: key
+            }
+        });
+        if (entries != null) for (const [key, value] of entries)this.set(key, value);
+    }
+    get(key) {
+        return super.get(intern_get(this, key));
+    }
+    has(key) {
+        return super.has(intern_get(this, key));
+    }
+    set(key, value) {
+        return super.set(intern_set(this, key), value);
+    }
+    delete(key) {
+        return super.delete(intern_delete(this, key));
+    }
+}
+class InternSet extends Set {
+    constructor(values, key = keyof){
+        super();
+        Object.defineProperties(this, {
+            _intern: {
+                value: new Map()
+            },
+            _key: {
+                value: key
+            }
+        });
+        if (values != null) for (const value of values)this.add(value);
+    }
+    has(value) {
+        return super.has(intern_get(this, value));
+    }
+    add(value) {
+        return super.add(intern_set(this, value));
+    }
+    delete(value) {
+        return super.delete(intern_delete(this, value));
+    }
+}
+function intern_get({ _intern , _key  }, value) {
+    const key = _key(value);
+    return _intern.has(key) ? _intern.get(key) : value;
+}
+function intern_set({ _intern , _key  }, value) {
+    const key = _key(value);
+    if (_intern.has(key)) return _intern.get(key);
+    _intern.set(key, value);
+    return value;
+}
+function intern_delete({ _intern , _key  }, value) {
+    const key = _key(value);
+    if (_intern.has(key)) {
+        value = _intern.get(key);
+        _intern.delete(key);
+    }
+    return value;
+}
+function keyof(value) {
+    return value !== null && typeof value === "object" ? value.valueOf() : value;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1LsCM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "identity", ()=>identity);
+parcelHelpers.export(exports, "copy", ()=>copy);
+parcelHelpers.export(exports, "transformer", ()=>transformer);
+var _d3Array = require("d3-array");
+var _d3Interpolate = require("d3-interpolate");
+var _constantJs = require("./constant.js");
+var _constantJsDefault = parcelHelpers.interopDefault(_constantJs);
+var _numberJs = require("./number.js");
+var _numberJsDefault = parcelHelpers.interopDefault(_numberJs);
+var unit = [
+    0,
+    1
+];
+function identity(x) {
+    return x;
+}
+function normalize(a, b) {
+    return (b -= a = +a) ? function(x) {
+        return (x - a) / b;
+    } : (0, _constantJsDefault.default)(isNaN(b) ? NaN : 0.5);
+}
+function clamper(a, b) {
+    var t;
+    if (a > b) t = a, a = b, b = t;
+    return function(x) {
+        return Math.max(a, Math.min(b, x));
+    };
+}
+// normalize(a, b)(x) takes a domain value x in [a,b] and returns the corresponding parameter t in [0,1].
+// interpolate(a, b)(t) takes a parameter t in [0,1] and returns the corresponding range value x in [a,b].
+function bimap(domain, range, interpolate) {
+    var d0 = domain[0], d1 = domain[1], r0 = range[0], r1 = range[1];
+    if (d1 < d0) d0 = normalize(d1, d0), r0 = interpolate(r1, r0);
+    else d0 = normalize(d0, d1), r0 = interpolate(r0, r1);
+    return function(x) {
+        return r0(d0(x));
+    };
+}
+function polymap(domain, range, interpolate) {
+    var j = Math.min(domain.length, range.length) - 1, d = new Array(j), r = new Array(j), i = -1;
+    // Reverse descending domains.
+    if (domain[j] < domain[0]) {
+        domain = domain.slice().reverse();
+        range = range.slice().reverse();
+    }
+    while(++i < j){
+        d[i] = normalize(domain[i], domain[i + 1]);
+        r[i] = interpolate(range[i], range[i + 1]);
+    }
+    return function(x) {
+        var i = (0, _d3Array.bisect)(domain, x, 1, j) - 1;
+        return r[i](d[i](x));
+    };
+}
+function copy(source, target) {
+    return target.domain(source.domain()).range(source.range()).interpolate(source.interpolate()).clamp(source.clamp()).unknown(source.unknown());
+}
+function transformer() {
+    var domain = unit, range = unit, interpolate = (0, _d3Interpolate.interpolate), transform, untransform, unknown, clamp = identity, piecewise, output, input;
+    function rescale() {
+        var n = Math.min(domain.length, range.length);
+        if (clamp !== identity) clamp = clamper(domain[0], domain[n - 1]);
+        piecewise = n > 2 ? polymap : bimap;
+        output = input = null;
+        return scale;
+    }
+    function scale(x) {
+        return x == null || isNaN(x = +x) ? unknown : (output || (output = piecewise(domain.map(transform), range, interpolate)))(transform(clamp(x)));
+    }
+    scale.invert = function(y) {
+        return clamp(untransform((input || (input = piecewise(range, domain.map(transform), (0, _d3Interpolate.interpolateNumber))))(y)));
+    };
+    scale.domain = function(_) {
+        return arguments.length ? (domain = Array.from(_, (0, _numberJsDefault.default)), rescale()) : domain.slice();
+    };
+    scale.range = function(_) {
+        return arguments.length ? (range = Array.from(_), rescale()) : range.slice();
+    };
+    scale.rangeRound = function(_) {
+        return range = Array.from(_), interpolate = (0, _d3Interpolate.interpolateRound), rescale();
+    };
+    scale.clamp = function(_) {
+        return arguments.length ? (clamp = _ ? true : identity, rescale()) : clamp !== identity;
+    };
+    scale.interpolate = function(_) {
+        return arguments.length ? (interpolate = _, rescale()) : interpolate;
+    };
+    scale.unknown = function(_) {
+        return arguments.length ? (unknown = _, scale) : unknown;
+    };
+    return function(t, u) {
+        transform = t, untransform = u;
+        return rescale();
+    };
+}
+function continuous() {
+    return transformer()(identity, identity);
+}
+exports.default = continuous;
+
+},{"d3-array":"1yX2W","d3-interpolate":"6jJyi","./constant.js":"kIv0D","./number.js":"k9Lyx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6jJyi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "interpolate", ()=>(0, _valueJsDefault.default));
+parcelHelpers.export(exports, "interpolateArray", ()=>(0, _arrayJsDefault.default));
+parcelHelpers.export(exports, "interpolateBasis", ()=>(0, _basisJsDefault.default));
+parcelHelpers.export(exports, "interpolateBasisClosed", ()=>(0, _basisClosedJsDefault.default));
+parcelHelpers.export(exports, "interpolateDate", ()=>(0, _dateJsDefault.default));
+parcelHelpers.export(exports, "interpolateDiscrete", ()=>(0, _discreteJsDefault.default));
+parcelHelpers.export(exports, "interpolateHue", ()=>(0, _hueJsDefault.default));
+parcelHelpers.export(exports, "interpolateNumber", ()=>(0, _numberJsDefault.default));
+parcelHelpers.export(exports, "interpolateNumberArray", ()=>(0, _numberArrayJsDefault.default));
+parcelHelpers.export(exports, "interpolateObject", ()=>(0, _objectJsDefault.default));
+parcelHelpers.export(exports, "interpolateRound", ()=>(0, _roundJsDefault.default));
+parcelHelpers.export(exports, "interpolateString", ()=>(0, _stringJsDefault.default));
+parcelHelpers.export(exports, "interpolateTransformCss", ()=>(0, _indexJs.interpolateTransformCss));
+parcelHelpers.export(exports, "interpolateTransformSvg", ()=>(0, _indexJs.interpolateTransformSvg));
+parcelHelpers.export(exports, "interpolateZoom", ()=>(0, _zoomJsDefault.default));
+parcelHelpers.export(exports, "interpolateRgb", ()=>(0, _rgbJsDefault.default));
+parcelHelpers.export(exports, "interpolateRgbBasis", ()=>(0, _rgbJs.rgbBasis));
+parcelHelpers.export(exports, "interpolateRgbBasisClosed", ()=>(0, _rgbJs.rgbBasisClosed));
+parcelHelpers.export(exports, "interpolateHsl", ()=>(0, _hslJsDefault.default));
+parcelHelpers.export(exports, "interpolateHslLong", ()=>(0, _hslJs.hslLong));
+parcelHelpers.export(exports, "interpolateLab", ()=>(0, _labJsDefault.default));
+parcelHelpers.export(exports, "interpolateHcl", ()=>(0, _hclJsDefault.default));
+parcelHelpers.export(exports, "interpolateHclLong", ()=>(0, _hclJs.hclLong));
+parcelHelpers.export(exports, "interpolateCubehelix", ()=>(0, _cubehelixJsDefault.default));
+parcelHelpers.export(exports, "interpolateCubehelixLong", ()=>(0, _cubehelixJs.cubehelixLong));
+parcelHelpers.export(exports, "piecewise", ()=>(0, _piecewiseJsDefault.default));
+parcelHelpers.export(exports, "quantize", ()=>(0, _quantizeJsDefault.default));
+var _valueJs = require("./value.js");
+var _valueJsDefault = parcelHelpers.interopDefault(_valueJs);
+var _arrayJs = require("./array.js");
+var _arrayJsDefault = parcelHelpers.interopDefault(_arrayJs);
+var _basisJs = require("./basis.js");
+var _basisJsDefault = parcelHelpers.interopDefault(_basisJs);
+var _basisClosedJs = require("./basisClosed.js");
+var _basisClosedJsDefault = parcelHelpers.interopDefault(_basisClosedJs);
+var _dateJs = require("./date.js");
+var _dateJsDefault = parcelHelpers.interopDefault(_dateJs);
+var _discreteJs = require("./discrete.js");
+var _discreteJsDefault = parcelHelpers.interopDefault(_discreteJs);
+var _hueJs = require("./hue.js");
+var _hueJsDefault = parcelHelpers.interopDefault(_hueJs);
+var _numberJs = require("./number.js");
+var _numberJsDefault = parcelHelpers.interopDefault(_numberJs);
+var _numberArrayJs = require("./numberArray.js");
+var _numberArrayJsDefault = parcelHelpers.interopDefault(_numberArrayJs);
+var _objectJs = require("./object.js");
+var _objectJsDefault = parcelHelpers.interopDefault(_objectJs);
+var _roundJs = require("./round.js");
+var _roundJsDefault = parcelHelpers.interopDefault(_roundJs);
+var _stringJs = require("./string.js");
+var _stringJsDefault = parcelHelpers.interopDefault(_stringJs);
+var _indexJs = require("./transform/index.js");
+var _zoomJs = require("./zoom.js");
+var _zoomJsDefault = parcelHelpers.interopDefault(_zoomJs);
+var _rgbJs = require("./rgb.js");
+var _rgbJsDefault = parcelHelpers.interopDefault(_rgbJs);
+var _hslJs = require("./hsl.js");
+var _hslJsDefault = parcelHelpers.interopDefault(_hslJs);
+var _labJs = require("./lab.js");
+var _labJsDefault = parcelHelpers.interopDefault(_labJs);
+var _hclJs = require("./hcl.js");
+var _hclJsDefault = parcelHelpers.interopDefault(_hclJs);
+var _cubehelixJs = require("./cubehelix.js");
+var _cubehelixJsDefault = parcelHelpers.interopDefault(_cubehelixJs);
+var _piecewiseJs = require("./piecewise.js");
+var _piecewiseJsDefault = parcelHelpers.interopDefault(_piecewiseJs);
+var _quantizeJs = require("./quantize.js");
+var _quantizeJsDefault = parcelHelpers.interopDefault(_quantizeJs);
+
+},{"./value.js":"2GpMq","./array.js":"bQXK0","./basis.js":"enhcL","./basisClosed.js":"gdZAO","./date.js":"cCKgJ","./discrete.js":false,"./hue.js":false,"./number.js":"fZAq5","./numberArray.js":"l29YZ","./object.js":"hdyKg","./round.js":"8lHW7","./string.js":"Qre8m","./transform/index.js":"jDBQO","./zoom.js":false,"./rgb.js":"gHrgo","./hsl.js":false,"./lab.js":false,"./hcl.js":false,"./cubehelix.js":false,"./piecewise.js":false,"./quantize.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2GpMq":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Color = require("d3-color");
+var _rgbJs = require("./rgb.js");
+var _rgbJsDefault = parcelHelpers.interopDefault(_rgbJs);
+var _arrayJs = require("./array.js");
+var _dateJs = require("./date.js");
+var _dateJsDefault = parcelHelpers.interopDefault(_dateJs);
+var _numberJs = require("./number.js");
+var _numberJsDefault = parcelHelpers.interopDefault(_numberJs);
+var _objectJs = require("./object.js");
+var _objectJsDefault = parcelHelpers.interopDefault(_objectJs);
+var _stringJs = require("./string.js");
+var _stringJsDefault = parcelHelpers.interopDefault(_stringJs);
+var _constantJs = require("./constant.js");
+var _constantJsDefault = parcelHelpers.interopDefault(_constantJs);
+var _numberArrayJs = require("./numberArray.js");
+var _numberArrayJsDefault = parcelHelpers.interopDefault(_numberArrayJs);
+exports.default = function(a, b) {
+    var t = typeof b, c;
+    return b == null || t === "boolean" ? (0, _constantJsDefault.default)(b) : (t === "number" ? (0, _numberJsDefault.default) : t === "string" ? (c = (0, _d3Color.color)(b)) ? (b = c, _rgbJsDefault.default) : (0, _stringJsDefault.default) : b instanceof (0, _d3Color.color) ? (0, _rgbJsDefault.default) : b instanceof Date ? (0, _dateJsDefault.default) : (0, _numberArrayJs.isNumberArray)(b) ? (0, _numberArrayJsDefault.default) : Array.isArray(b) ? (0, _arrayJs.genericArray) : typeof b.valueOf !== "function" && typeof b.toString !== "function" || isNaN(b) ? (0, _objectJsDefault.default) : (0, _numberJsDefault.default))(a, b);
+};
+
+},{"d3-color":"grhaa","./rgb.js":"gHrgo","./array.js":"bQXK0","./date.js":"cCKgJ","./number.js":"fZAq5","./object.js":"hdyKg","./string.js":"Qre8m","./constant.js":"aXv76","./numberArray.js":"l29YZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"grhaa":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "color", ()=>(0, _colorJsDefault.default));
+parcelHelpers.export(exports, "rgb", ()=>(0, _colorJs.rgb));
+parcelHelpers.export(exports, "hsl", ()=>(0, _colorJs.hsl));
+parcelHelpers.export(exports, "lab", ()=>(0, _labJsDefault.default));
+parcelHelpers.export(exports, "hcl", ()=>(0, _labJs.hcl));
+parcelHelpers.export(exports, "lch", ()=>(0, _labJs.lch));
+parcelHelpers.export(exports, "gray", ()=>(0, _labJs.gray));
+parcelHelpers.export(exports, "cubehelix", ()=>(0, _cubehelixJsDefault.default));
+var _colorJs = require("./color.js");
+var _colorJsDefault = parcelHelpers.interopDefault(_colorJs);
+var _labJs = require("./lab.js");
+var _labJsDefault = parcelHelpers.interopDefault(_labJs);
+var _cubehelixJs = require("./cubehelix.js");
+var _cubehelixJsDefault = parcelHelpers.interopDefault(_cubehelixJs);
+
+},{"./color.js":"cNCyv","./lab.js":false,"./cubehelix.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cNCyv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Color", ()=>Color);
+parcelHelpers.export(exports, "darker", ()=>darker);
+parcelHelpers.export(exports, "brighter", ()=>brighter);
+parcelHelpers.export(exports, "rgbConvert", ()=>rgbConvert);
+parcelHelpers.export(exports, "rgb", ()=>rgb);
+parcelHelpers.export(exports, "Rgb", ()=>Rgb);
+parcelHelpers.export(exports, "hslConvert", ()=>hslConvert);
+parcelHelpers.export(exports, "hsl", ()=>hsl);
+var _defineJs = require("./define.js");
+var _defineJsDefault = parcelHelpers.interopDefault(_defineJs);
+function Color() {}
+var darker = 0.7;
+var brighter = 1 / darker;
+var reI = "\\s*([+-]?\\d+)\\s*", reN = "\\s*([+-]?(?:\\d*\\.)?\\d+(?:[eE][+-]?\\d+)?)\\s*", reP = "\\s*([+-]?(?:\\d*\\.)?\\d+(?:[eE][+-]?\\d+)?)%\\s*", reHex = /^#([0-9a-f]{3,8})$/, reRgbInteger = new RegExp(`^rgb\\(${reI},${reI},${reI}\\)$`), reRgbPercent = new RegExp(`^rgb\\(${reP},${reP},${reP}\\)$`), reRgbaInteger = new RegExp(`^rgba\\(${reI},${reI},${reI},${reN}\\)$`), reRgbaPercent = new RegExp(`^rgba\\(${reP},${reP},${reP},${reN}\\)$`), reHslPercent = new RegExp(`^hsl\\(${reN},${reP},${reP}\\)$`), reHslaPercent = new RegExp(`^hsla\\(${reN},${reP},${reP},${reN}\\)$`);
+var named = {
+    aliceblue: 0xf0f8ff,
+    antiquewhite: 0xfaebd7,
+    aqua: 0x00ffff,
+    aquamarine: 0x7fffd4,
+    azure: 0xf0ffff,
+    beige: 0xf5f5dc,
+    bisque: 0xffe4c4,
+    black: 0x000000,
+    blanchedalmond: 0xffebcd,
+    blue: 0x0000ff,
+    blueviolet: 0x8a2be2,
+    brown: 0xa52a2a,
+    burlywood: 0xdeb887,
+    cadetblue: 0x5f9ea0,
+    chartreuse: 0x7fff00,
+    chocolate: 0xd2691e,
+    coral: 0xff7f50,
+    cornflowerblue: 0x6495ed,
+    cornsilk: 0xfff8dc,
+    crimson: 0xdc143c,
+    cyan: 0x00ffff,
+    darkblue: 0x00008b,
+    darkcyan: 0x008b8b,
+    darkgoldenrod: 0xb8860b,
+    darkgray: 0xa9a9a9,
+    darkgreen: 0x006400,
+    darkgrey: 0xa9a9a9,
+    darkkhaki: 0xbdb76b,
+    darkmagenta: 0x8b008b,
+    darkolivegreen: 0x556b2f,
+    darkorange: 0xff8c00,
+    darkorchid: 0x9932cc,
+    darkred: 0x8b0000,
+    darksalmon: 0xe9967a,
+    darkseagreen: 0x8fbc8f,
+    darkslateblue: 0x483d8b,
+    darkslategray: 0x2f4f4f,
+    darkslategrey: 0x2f4f4f,
+    darkturquoise: 0x00ced1,
+    darkviolet: 0x9400d3,
+    deeppink: 0xff1493,
+    deepskyblue: 0x00bfff,
+    dimgray: 0x696969,
+    dimgrey: 0x696969,
+    dodgerblue: 0x1e90ff,
+    firebrick: 0xb22222,
+    floralwhite: 0xfffaf0,
+    forestgreen: 0x228b22,
+    fuchsia: 0xff00ff,
+    gainsboro: 0xdcdcdc,
+    ghostwhite: 0xf8f8ff,
+    gold: 0xffd700,
+    goldenrod: 0xdaa520,
+    gray: 0x808080,
+    green: 0x008000,
+    greenyellow: 0xadff2f,
+    grey: 0x808080,
+    honeydew: 0xf0fff0,
+    hotpink: 0xff69b4,
+    indianred: 0xcd5c5c,
+    indigo: 0x4b0082,
+    ivory: 0xfffff0,
+    khaki: 0xf0e68c,
+    lavender: 0xe6e6fa,
+    lavenderblush: 0xfff0f5,
+    lawngreen: 0x7cfc00,
+    lemonchiffon: 0xfffacd,
+    lightblue: 0xadd8e6,
+    lightcoral: 0xf08080,
+    lightcyan: 0xe0ffff,
+    lightgoldenrodyellow: 0xfafad2,
+    lightgray: 0xd3d3d3,
+    lightgreen: 0x90ee90,
+    lightgrey: 0xd3d3d3,
+    lightpink: 0xffb6c1,
+    lightsalmon: 0xffa07a,
+    lightseagreen: 0x20b2aa,
+    lightskyblue: 0x87cefa,
+    lightslategray: 0x778899,
+    lightslategrey: 0x778899,
+    lightsteelblue: 0xb0c4de,
+    lightyellow: 0xffffe0,
+    lime: 0x00ff00,
+    limegreen: 0x32cd32,
+    linen: 0xfaf0e6,
+    magenta: 0xff00ff,
+    maroon: 0x800000,
+    mediumaquamarine: 0x66cdaa,
+    mediumblue: 0x0000cd,
+    mediumorchid: 0xba55d3,
+    mediumpurple: 0x9370db,
+    mediumseagreen: 0x3cb371,
+    mediumslateblue: 0x7b68ee,
+    mediumspringgreen: 0x00fa9a,
+    mediumturquoise: 0x48d1cc,
+    mediumvioletred: 0xc71585,
+    midnightblue: 0x191970,
+    mintcream: 0xf5fffa,
+    mistyrose: 0xffe4e1,
+    moccasin: 0xffe4b5,
+    navajowhite: 0xffdead,
+    navy: 0x000080,
+    oldlace: 0xfdf5e6,
+    olive: 0x808000,
+    olivedrab: 0x6b8e23,
+    orange: 0xffa500,
+    orangered: 0xff4500,
+    orchid: 0xda70d6,
+    palegoldenrod: 0xeee8aa,
+    palegreen: 0x98fb98,
+    paleturquoise: 0xafeeee,
+    palevioletred: 0xdb7093,
+    papayawhip: 0xffefd5,
+    peachpuff: 0xffdab9,
+    peru: 0xcd853f,
+    pink: 0xffc0cb,
+    plum: 0xdda0dd,
+    powderblue: 0xb0e0e6,
+    purple: 0x800080,
+    rebeccapurple: 0x663399,
+    red: 0xff0000,
+    rosybrown: 0xbc8f8f,
+    royalblue: 0x4169e1,
+    saddlebrown: 0x8b4513,
+    salmon: 0xfa8072,
+    sandybrown: 0xf4a460,
+    seagreen: 0x2e8b57,
+    seashell: 0xfff5ee,
+    sienna: 0xa0522d,
+    silver: 0xc0c0c0,
+    skyblue: 0x87ceeb,
+    slateblue: 0x6a5acd,
+    slategray: 0x708090,
+    slategrey: 0x708090,
+    snow: 0xfffafa,
+    springgreen: 0x00ff7f,
+    steelblue: 0x4682b4,
+    tan: 0xd2b48c,
+    teal: 0x008080,
+    thistle: 0xd8bfd8,
+    tomato: 0xff6347,
+    turquoise: 0x40e0d0,
+    violet: 0xee82ee,
+    wheat: 0xf5deb3,
+    white: 0xffffff,
+    whitesmoke: 0xf5f5f5,
+    yellow: 0xffff00,
+    yellowgreen: 0x9acd32
+};
+(0, _defineJsDefault.default)(Color, color, {
+    copy (channels) {
+        return Object.assign(new this.constructor, this, channels);
+    },
+    displayable () {
+        return this.rgb().displayable();
+    },
+    hex: color_formatHex,
+    formatHex: color_formatHex,
+    formatHex8: color_formatHex8,
+    formatHsl: color_formatHsl,
+    formatRgb: color_formatRgb,
+    toString: color_formatRgb
+});
+function color_formatHex() {
+    return this.rgb().formatHex();
+}
+function color_formatHex8() {
+    return this.rgb().formatHex8();
+}
+function color_formatHsl() {
+    return hslConvert(this).formatHsl();
+}
+function color_formatRgb() {
+    return this.rgb().formatRgb();
+}
+function color(format) {
+    var m, l;
+    format = (format + "").trim().toLowerCase();
+    return (m = reHex.exec(format)) ? (l = m[1].length, m = parseInt(m[1], 16), l === 6 ? rgbn(m) // #ff0000
+     : l === 3 ? new Rgb(m >> 8 & 0xf | m >> 4 & 0xf0, m >> 4 & 0xf | m & 0xf0, (m & 0xf) << 4 | m & 0xf, 1) // #f00
+     : l === 8 ? rgba(m >> 24 & 0xff, m >> 16 & 0xff, m >> 8 & 0xff, (m & 0xff) / 0xff) // #ff000000
+     : l === 4 ? rgba(m >> 12 & 0xf | m >> 8 & 0xf0, m >> 8 & 0xf | m >> 4 & 0xf0, m >> 4 & 0xf | m & 0xf0, ((m & 0xf) << 4 | m & 0xf) / 0xff) // #f000
+     : null // invalid hex
+    ) : (m = reRgbInteger.exec(format)) ? new Rgb(m[1], m[2], m[3], 1) // rgb(255, 0, 0)
+     : (m = reRgbPercent.exec(format)) ? new Rgb(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, 1) // rgb(100%, 0%, 0%)
+     : (m = reRgbaInteger.exec(format)) ? rgba(m[1], m[2], m[3], m[4]) // rgba(255, 0, 0, 1)
+     : (m = reRgbaPercent.exec(format)) ? rgba(m[1] * 255 / 100, m[2] * 255 / 100, m[3] * 255 / 100, m[4]) // rgb(100%, 0%, 0%, 1)
+     : (m = reHslPercent.exec(format)) ? hsla(m[1], m[2] / 100, m[3] / 100, 1) // hsl(120, 50%, 50%)
+     : (m = reHslaPercent.exec(format)) ? hsla(m[1], m[2] / 100, m[3] / 100, m[4]) // hsla(120, 50%, 50%, 1)
+     : named.hasOwnProperty(format) ? rgbn(named[format]) // eslint-disable-line no-prototype-builtins
+     : format === "transparent" ? new Rgb(NaN, NaN, NaN, 0) : null;
+}
+exports.default = color;
+function rgbn(n) {
+    return new Rgb(n >> 16 & 0xff, n >> 8 & 0xff, n & 0xff, 1);
+}
+function rgba(r, g, b, a) {
+    if (a <= 0) r = g = b = NaN;
+    return new Rgb(r, g, b, a);
+}
+function rgbConvert(o) {
+    if (!(o instanceof Color)) o = color(o);
+    if (!o) return new Rgb;
+    o = o.rgb();
+    return new Rgb(o.r, o.g, o.b, o.opacity);
+}
+function rgb(r, g, b, opacity) {
+    return arguments.length === 1 ? rgbConvert(r) : new Rgb(r, g, b, opacity == null ? 1 : opacity);
+}
+function Rgb(r, g, b, opacity) {
+    this.r = +r;
+    this.g = +g;
+    this.b = +b;
+    this.opacity = +opacity;
+}
+(0, _defineJsDefault.default)(Rgb, rgb, (0, _defineJs.extend)(Color, {
+    brighter (k) {
+        k = k == null ? brighter : Math.pow(brighter, k);
+        return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
+    },
+    darker (k) {
+        k = k == null ? darker : Math.pow(darker, k);
+        return new Rgb(this.r * k, this.g * k, this.b * k, this.opacity);
+    },
+    rgb () {
+        return this;
+    },
+    clamp () {
+        return new Rgb(clampi(this.r), clampi(this.g), clampi(this.b), clampa(this.opacity));
+    },
+    displayable () {
+        return -0.5 <= this.r && this.r < 255.5 && -0.5 <= this.g && this.g < 255.5 && -0.5 <= this.b && this.b < 255.5 && 0 <= this.opacity && this.opacity <= 1;
+    },
+    hex: rgb_formatHex,
+    formatHex: rgb_formatHex,
+    formatHex8: rgb_formatHex8,
+    formatRgb: rgb_formatRgb,
+    toString: rgb_formatRgb
+}));
+function rgb_formatHex() {
+    return `#${hex(this.r)}${hex(this.g)}${hex(this.b)}`;
+}
+function rgb_formatHex8() {
+    return `#${hex(this.r)}${hex(this.g)}${hex(this.b)}${hex((isNaN(this.opacity) ? 1 : this.opacity) * 255)}`;
+}
+function rgb_formatRgb() {
+    const a = clampa(this.opacity);
+    return `${a === 1 ? "rgb(" : "rgba("}${clampi(this.r)}, ${clampi(this.g)}, ${clampi(this.b)}${a === 1 ? ")" : `, ${a})`}`;
+}
+function clampa(opacity) {
+    return isNaN(opacity) ? 1 : Math.max(0, Math.min(1, opacity));
+}
+function clampi(value) {
+    return Math.max(0, Math.min(255, Math.round(value) || 0));
+}
+function hex(value) {
+    value = clampi(value);
+    return (value < 16 ? "0" : "") + value.toString(16);
+}
+function hsla(h, s, l, a) {
+    if (a <= 0) h = s = l = NaN;
+    else if (l <= 0 || l >= 1) h = s = NaN;
+    else if (s <= 0) h = NaN;
+    return new Hsl(h, s, l, a);
+}
+function hslConvert(o) {
+    if (o instanceof Hsl) return new Hsl(o.h, o.s, o.l, o.opacity);
+    if (!(o instanceof Color)) o = color(o);
+    if (!o) return new Hsl;
+    if (o instanceof Hsl) return o;
+    o = o.rgb();
+    var r = o.r / 255, g = o.g / 255, b = o.b / 255, min = Math.min(r, g, b), max = Math.max(r, g, b), h = NaN, s = max - min, l = (max + min) / 2;
+    if (s) {
+        if (r === max) h = (g - b) / s + (g < b) * 6;
+        else if (g === max) h = (b - r) / s + 2;
+        else h = (r - g) / s + 4;
+        s /= l < 0.5 ? max + min : 2 - max - min;
+        h *= 60;
+    } else s = l > 0 && l < 1 ? 0 : h;
+    return new Hsl(h, s, l, o.opacity);
+}
+function hsl(h, s, l, opacity) {
+    return arguments.length === 1 ? hslConvert(h) : new Hsl(h, s, l, opacity == null ? 1 : opacity);
+}
+function Hsl(h, s, l, opacity) {
+    this.h = +h;
+    this.s = +s;
+    this.l = +l;
+    this.opacity = +opacity;
+}
+(0, _defineJsDefault.default)(Hsl, hsl, (0, _defineJs.extend)(Color, {
+    brighter (k) {
+        k = k == null ? brighter : Math.pow(brighter, k);
+        return new Hsl(this.h, this.s, this.l * k, this.opacity);
+    },
+    darker (k) {
+        k = k == null ? darker : Math.pow(darker, k);
+        return new Hsl(this.h, this.s, this.l * k, this.opacity);
+    },
+    rgb () {
+        var h = this.h % 360 + (this.h < 0) * 360, s = isNaN(h) || isNaN(this.s) ? 0 : this.s, l = this.l, m2 = l + (l < 0.5 ? l : 1 - l) * s, m1 = 2 * l - m2;
+        return new Rgb(hsl2rgb(h >= 240 ? h - 240 : h + 120, m1, m2), hsl2rgb(h, m1, m2), hsl2rgb(h < 120 ? h + 240 : h - 120, m1, m2), this.opacity);
+    },
+    clamp () {
+        return new Hsl(clamph(this.h), clampt(this.s), clampt(this.l), clampa(this.opacity));
+    },
+    displayable () {
+        return (0 <= this.s && this.s <= 1 || isNaN(this.s)) && 0 <= this.l && this.l <= 1 && 0 <= this.opacity && this.opacity <= 1;
+    },
+    formatHsl () {
+        const a = clampa(this.opacity);
+        return `${a === 1 ? "hsl(" : "hsla("}${clamph(this.h)}, ${clampt(this.s) * 100}%, ${clampt(this.l) * 100}%${a === 1 ? ")" : `, ${a})`}`;
+    }
+}));
+function clamph(value) {
+    value = (value || 0) % 360;
+    return value < 0 ? value + 360 : value;
+}
+function clampt(value) {
+    return Math.max(0, Math.min(1, value || 0));
+}
+/* From FvD 13.37, CSS Color Module Level 3 */ function hsl2rgb(h, m1, m2) {
+    return (h < 60 ? m1 + (m2 - m1) * h / 60 : h < 180 ? m2 : h < 240 ? m1 + (m2 - m1) * (240 - h) / 60 : m1) * 255;
+}
+
+},{"./define.js":"avQOe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"avQOe":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "extend", ()=>extend);
+exports.default = function(constructor, factory, prototype) {
+    constructor.prototype = factory.prototype = prototype;
+    prototype.constructor = constructor;
+};
+function extend(parent, definition) {
+    var prototype = Object.create(parent.prototype);
+    for(var key in definition)prototype[key] = definition[key];
+    return prototype;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gHrgo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "rgbBasis", ()=>rgbBasis);
+parcelHelpers.export(exports, "rgbBasisClosed", ()=>rgbBasisClosed);
+var _d3Color = require("d3-color");
+var _basisJs = require("./basis.js");
+var _basisJsDefault = parcelHelpers.interopDefault(_basisJs);
+var _basisClosedJs = require("./basisClosed.js");
+var _basisClosedJsDefault = parcelHelpers.interopDefault(_basisClosedJs);
+var _colorJs = require("./color.js");
+var _colorJsDefault = parcelHelpers.interopDefault(_colorJs);
+exports.default = function rgbGamma(y) {
+    var color = (0, _colorJs.gamma)(y);
+    function rgb(start, end) {
+        var r = color((start = (0, _d3Color.rgb)(start)).r, (end = (0, _d3Color.rgb)(end)).r), g = color(start.g, end.g), b = color(start.b, end.b), opacity = (0, _colorJsDefault.default)(start.opacity, end.opacity);
+        return function(t) {
+            start.r = r(t);
+            start.g = g(t);
+            start.b = b(t);
+            start.opacity = opacity(t);
+            return start + "";
+        };
+    }
+    rgb.gamma = rgbGamma;
+    return rgb;
+}(1);
+function rgbSpline(spline) {
+    return function(colors) {
+        var n = colors.length, r = new Array(n), g = new Array(n), b = new Array(n), i, color;
+        for(i = 0; i < n; ++i){
+            color = (0, _d3Color.rgb)(colors[i]);
+            r[i] = color.r || 0;
+            g[i] = color.g || 0;
+            b[i] = color.b || 0;
+        }
+        r = spline(r);
+        g = spline(g);
+        b = spline(b);
+        color.opacity = 1;
+        return function(t) {
+            color.r = r(t);
+            color.g = g(t);
+            color.b = b(t);
+            return color + "";
+        };
+    };
+}
+var rgbBasis = rgbSpline((0, _basisJsDefault.default));
+var rgbBasisClosed = rgbSpline((0, _basisClosedJsDefault.default));
+
+},{"d3-color":"grhaa","./basis.js":"enhcL","./basisClosed.js":"gdZAO","./color.js":"1eZq9","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"enhcL":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "basis", ()=>basis);
+function basis(t1, v0, v1, v2, v3) {
+    var t2 = t1 * t1, t3 = t2 * t1;
+    return ((1 - 3 * t1 + 3 * t2 - t3) * v0 + (4 - 6 * t2 + 3 * t3) * v1 + (1 + 3 * t1 + 3 * t2 - 3 * t3) * v2 + t3 * v3) / 6;
+}
+exports.default = function(values) {
+    var n = values.length - 1;
+    return function(t) {
+        var i = t <= 0 ? t = 0 : t >= 1 ? (t = 1, n - 1) : Math.floor(t * n), v1 = values[i], v2 = values[i + 1], v0 = i > 0 ? values[i - 1] : 2 * v1 - v2, v3 = i < n - 1 ? values[i + 2] : 2 * v2 - v1;
+        return basis((t - i / n) * n, v0, v1, v2, v3);
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gdZAO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _basisJs = require("./basis.js");
+exports.default = function(values) {
+    var n = values.length;
+    return function(t) {
+        var i = Math.floor(((t %= 1) < 0 ? ++t : t) * n), v0 = values[(i + n - 1) % n], v1 = values[i % n], v2 = values[(i + 1) % n], v3 = values[(i + 2) % n];
+        return (0, _basisJs.basis)((t - i / n) * n, v0, v1, v2, v3);
+    };
+};
+
+},{"./basis.js":"enhcL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1eZq9":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "hue", ()=>hue);
+parcelHelpers.export(exports, "gamma", ()=>gamma);
+var _constantJs = require("./constant.js");
+var _constantJsDefault = parcelHelpers.interopDefault(_constantJs);
+function linear(a, d) {
+    return function(t) {
+        return a + t * d;
+    };
+}
+function exponential(a, b, y) {
+    return a = Math.pow(a, y), b = Math.pow(b, y) - a, y = 1 / y, function(t) {
+        return Math.pow(a + t * b, y);
+    };
+}
+function hue(a, b) {
+    var d = b - a;
+    return d ? linear(a, d > 180 || d < -180 ? d - 360 * Math.round(d / 360) : d) : (0, _constantJsDefault.default)(isNaN(a) ? b : a);
+}
+function gamma(y) {
+    return (y = +y) === 1 ? nogamma : function(a, b) {
+        return b - a ? exponential(a, b, y) : (0, _constantJsDefault.default)(isNaN(a) ? b : a);
+    };
+}
+function nogamma(a, b) {
+    var d = b - a;
+    return d ? linear(a, d) : (0, _constantJsDefault.default)(isNaN(a) ? b : a);
+}
+exports.default = nogamma;
+
+},{"./constant.js":"aXv76","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aXv76":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = (x)=>()=>x;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bQXK0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "genericArray", ()=>genericArray);
+var _valueJs = require("./value.js");
+var _valueJsDefault = parcelHelpers.interopDefault(_valueJs);
+var _numberArrayJs = require("./numberArray.js");
+var _numberArrayJsDefault = parcelHelpers.interopDefault(_numberArrayJs);
+exports.default = function(a, b) {
+    return ((0, _numberArrayJs.isNumberArray)(b) ? (0, _numberArrayJsDefault.default) : genericArray)(a, b);
+};
+function genericArray(a, b) {
+    var nb = b ? b.length : 0, na = a ? Math.min(nb, a.length) : 0, x = new Array(na), c = new Array(nb), i;
+    for(i = 0; i < na; ++i)x[i] = (0, _valueJsDefault.default)(a[i], b[i]);
+    for(; i < nb; ++i)c[i] = b[i];
+    return function(t) {
+        for(i = 0; i < na; ++i)c[i] = x[i](t);
+        return c;
+    };
+}
+
+},{"./value.js":"2GpMq","./numberArray.js":"l29YZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"l29YZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "isNumberArray", ()=>isNumberArray);
+exports.default = function(a, b) {
+    if (!b) b = [];
+    var n = a ? Math.min(b.length, a.length) : 0, c = b.slice(), i;
+    return function(t) {
+        for(i = 0; i < n; ++i)c[i] = a[i] * (1 - t) + b[i] * t;
+        return c;
+    };
+};
+function isNumberArray(x) {
+    return ArrayBuffer.isView(x) && !(x instanceof DataView);
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cCKgJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(a, b) {
+    var d = new Date;
+    return a = +a, b = +b, function(t) {
+        return d.setTime(a * (1 - t) + b * t), d;
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fZAq5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(a, b) {
+    return a = +a, b = +b, function(t) {
+        return a * (1 - t) + b * t;
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hdyKg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _valueJs = require("./value.js");
+var _valueJsDefault = parcelHelpers.interopDefault(_valueJs);
+exports.default = function(a, b) {
+    var i = {}, c = {}, k;
+    if (a === null || typeof a !== "object") a = {};
+    if (b === null || typeof b !== "object") b = {};
+    for(k in b)if (k in a) i[k] = (0, _valueJsDefault.default)(a[k], b[k]);
+    else c[k] = b[k];
+    return function(t) {
+        for(k in i)c[k] = i[k](t);
+        return c;
+    };
+};
+
+},{"./value.js":"2GpMq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Qre8m":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _numberJs = require("./number.js");
+var _numberJsDefault = parcelHelpers.interopDefault(_numberJs);
+var reA = /[-+]?(?:\d+\.?\d*|\.?\d+)(?:[eE][-+]?\d+)?/g, reB = new RegExp(reA.source, "g");
+function zero(b) {
+    return function() {
+        return b;
+    };
+}
+function one(b) {
+    return function(t) {
+        return b(t) + "";
+    };
+}
+exports.default = function(a, b) {
+    var bi = reA.lastIndex = reB.lastIndex = 0, am, bm, bs, i = -1, s = [], q = []; // number interpolators
+    // Coerce inputs to strings.
+    a = a + "", b = b + "";
+    // Interpolate pairs of numbers in a & b.
+    while((am = reA.exec(a)) && (bm = reB.exec(b))){
+        if ((bs = bm.index) > bi) {
+            bs = b.slice(bi, bs);
+            if (s[i]) s[i] += bs; // coalesce with previous string
+            else s[++i] = bs;
+        }
+        if ((am = am[0]) === (bm = bm[0])) {
+            if (s[i]) s[i] += bm; // coalesce with previous string
+            else s[++i] = bm;
+        } else {
+            s[++i] = null;
+            q.push({
+                i: i,
+                x: (0, _numberJsDefault.default)(am, bm)
+            });
+        }
+        bi = reB.lastIndex;
+    }
+    // Add remains of b.
+    if (bi < b.length) {
+        bs = b.slice(bi);
+        if (s[i]) s[i] += bs; // coalesce with previous string
+        else s[++i] = bs;
+    }
+    // Special optimization for only a single match.
+    // Otherwise, interpolate each of the numbers and rejoin the string.
+    return s.length < 2 ? q[0] ? one(q[0].x) : zero(b) : (b = q.length, function(t) {
+        for(var i = 0, o; i < b; ++i)s[(o = q[i]).i] = o.x(t);
+        return s.join("");
+    });
+};
+
+},{"./number.js":"fZAq5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8lHW7":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(a, b) {
+    return a = +a, b = +b, function(t) {
+        return Math.round(a * (1 - t) + b * t);
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jDBQO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "interpolateTransformCss", ()=>interpolateTransformCss);
+parcelHelpers.export(exports, "interpolateTransformSvg", ()=>interpolateTransformSvg);
+var _numberJs = require("../number.js");
+var _numberJsDefault = parcelHelpers.interopDefault(_numberJs);
+var _parseJs = require("./parse.js");
+function interpolateTransform(parse, pxComma, pxParen, degParen) {
+    function pop(s) {
+        return s.length ? s.pop() + " " : "";
+    }
+    function translate(xa, ya, xb, yb, s, q) {
+        if (xa !== xb || ya !== yb) {
+            var i = s.push("translate(", null, pxComma, null, pxParen);
+            q.push({
+                i: i - 4,
+                x: (0, _numberJsDefault.default)(xa, xb)
+            }, {
+                i: i - 2,
+                x: (0, _numberJsDefault.default)(ya, yb)
+            });
+        } else if (xb || yb) s.push("translate(" + xb + pxComma + yb + pxParen);
+    }
+    function rotate(a, b, s, q) {
+        if (a !== b) {
+            if (a - b > 180) b += 360;
+            else if (b - a > 180) a += 360; // shortest path
+            q.push({
+                i: s.push(pop(s) + "rotate(", null, degParen) - 2,
+                x: (0, _numberJsDefault.default)(a, b)
+            });
+        } else if (b) s.push(pop(s) + "rotate(" + b + degParen);
+    }
+    function skewX(a, b, s, q) {
+        if (a !== b) q.push({
+            i: s.push(pop(s) + "skewX(", null, degParen) - 2,
+            x: (0, _numberJsDefault.default)(a, b)
+        });
+        else if (b) s.push(pop(s) + "skewX(" + b + degParen);
+    }
+    function scale(xa, ya, xb, yb, s, q) {
+        if (xa !== xb || ya !== yb) {
+            var i = s.push(pop(s) + "scale(", null, ",", null, ")");
+            q.push({
+                i: i - 4,
+                x: (0, _numberJsDefault.default)(xa, xb)
+            }, {
+                i: i - 2,
+                x: (0, _numberJsDefault.default)(ya, yb)
+            });
+        } else if (xb !== 1 || yb !== 1) s.push(pop(s) + "scale(" + xb + "," + yb + ")");
+    }
+    return function(a, b) {
+        var s = [], q = []; // number interpolators
+        a = parse(a), b = parse(b);
+        translate(a.translateX, a.translateY, b.translateX, b.translateY, s, q);
+        rotate(a.rotate, b.rotate, s, q);
+        skewX(a.skewX, b.skewX, s, q);
+        scale(a.scaleX, a.scaleY, b.scaleX, b.scaleY, s, q);
+        a = b = null; // gc
+        return function(t) {
+            var i = -1, n = q.length, o;
+            while(++i < n)s[(o = q[i]).i] = o.x(t);
+            return s.join("");
+        };
+    };
+}
+var interpolateTransformCss = interpolateTransform((0, _parseJs.parseCss), "px, ", "px)", "deg)");
+var interpolateTransformSvg = interpolateTransform((0, _parseJs.parseSvg), ", ", ")", ")");
+
+},{"../number.js":"fZAq5","./parse.js":"dwvtF","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dwvtF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/* eslint-disable no-undef */ parcelHelpers.export(exports, "parseCss", ()=>parseCss);
+parcelHelpers.export(exports, "parseSvg", ()=>parseSvg);
+var _decomposeJs = require("./decompose.js");
+var _decomposeJsDefault = parcelHelpers.interopDefault(_decomposeJs);
+var svgNode;
+function parseCss(value) {
+    const m = new (typeof DOMMatrix === "function" ? DOMMatrix : WebKitCSSMatrix)(value + "");
+    return m.isIdentity ? (0, _decomposeJs.identity) : (0, _decomposeJsDefault.default)(m.a, m.b, m.c, m.d, m.e, m.f);
+}
+function parseSvg(value) {
+    if (value == null) return 0, _decomposeJs.identity;
+    if (!svgNode) svgNode = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    svgNode.setAttribute("transform", value);
+    if (!(value = svgNode.transform.baseVal.consolidate())) return 0, _decomposeJs.identity;
+    value = value.matrix;
+    return (0, _decomposeJsDefault.default)(value.a, value.b, value.c, value.d, value.e, value.f);
+}
+
+},{"./decompose.js":"7Ejbr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Ejbr":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "identity", ()=>identity);
+var degrees = 180 / Math.PI;
+var identity = {
+    translateX: 0,
+    translateY: 0,
+    rotate: 0,
+    skewX: 0,
+    scaleX: 1,
+    scaleY: 1
+};
+exports.default = function(a, b, c, d, e, f) {
+    var scaleX, scaleY, skewX;
+    if (scaleX = Math.sqrt(a * a + b * b)) a /= scaleX, b /= scaleX;
+    if (skewX = a * c + b * d) c -= a * skewX, d -= b * skewX;
+    if (scaleY = Math.sqrt(c * c + d * d)) c /= scaleY, d /= scaleY, skewX /= scaleY;
+    if (a * d < b * c) a = -a, b = -b, skewX = -skewX, scaleX = -scaleX;
+    return {
+        translateX: e,
+        translateY: f,
+        rotate: Math.atan2(b, a) * degrees,
+        skewX: Math.atan(skewX) * degrees,
+        scaleX: scaleX,
+        scaleY: scaleY
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kIv0D":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function constants(x) {
+    return function() {
+        return x;
+    };
+}
+exports.default = constants;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k9Lyx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function number(x) {
+    return +x;
+}
+exports.default = number;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kp8lc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initRange", ()=>initRange);
+parcelHelpers.export(exports, "initInterpolator", ()=>initInterpolator);
+function initRange(domain, range) {
+    switch(arguments.length){
+        case 0:
+            break;
+        case 1:
+            this.range(domain);
+            break;
+        default:
+            this.range(range).domain(domain);
+            break;
+    }
+    return this;
+}
+function initInterpolator(domain, interpolator) {
+    switch(arguments.length){
+        case 0:
+            break;
+        case 1:
+            if (typeof domain === "function") this.interpolator(domain);
+            else this.range(domain);
+            break;
+        default:
+            this.domain(domain);
+            if (typeof interpolator === "function") this.interpolator(interpolator);
+            else this.range(interpolator);
+            break;
+    }
+    return this;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ahQef":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Array = require("d3-array");
+var _d3Format = require("d3-format");
+function tickFormat(start, stop, count, specifier) {
+    var step = (0, _d3Array.tickStep)(start, stop, count), precision;
+    specifier = (0, _d3Format.formatSpecifier)(specifier == null ? ",f" : specifier);
+    switch(specifier.type){
+        case "s":
+            var value = Math.max(Math.abs(start), Math.abs(stop));
+            if (specifier.precision == null && !isNaN(precision = (0, _d3Format.precisionPrefix)(step, value))) specifier.precision = precision;
+            return (0, _d3Format.formatPrefix)(specifier, value);
+        case "":
+        case "e":
+        case "g":
+        case "p":
+        case "r":
+            if (specifier.precision == null && !isNaN(precision = (0, _d3Format.precisionRound)(step, Math.max(Math.abs(start), Math.abs(stop))))) specifier.precision = precision - (specifier.type === "e");
+            break;
+        case "f":
+        case "%":
+            if (specifier.precision == null && !isNaN(precision = (0, _d3Format.precisionFixed)(step))) specifier.precision = precision - (specifier.type === "%") * 2;
+            break;
+    }
+    return (0, _d3Format.format)(specifier);
+}
+exports.default = tickFormat;
+
+},{"d3-array":"1yX2W","d3-format":"4XOv2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4XOv2":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "formatDefaultLocale", ()=>(0, _defaultLocaleJsDefault.default));
+parcelHelpers.export(exports, "format", ()=>(0, _defaultLocaleJs.format));
+parcelHelpers.export(exports, "formatPrefix", ()=>(0, _defaultLocaleJs.formatPrefix));
+parcelHelpers.export(exports, "formatLocale", ()=>(0, _localeJsDefault.default));
+parcelHelpers.export(exports, "formatSpecifier", ()=>(0, _formatSpecifierJsDefault.default));
+parcelHelpers.export(exports, "FormatSpecifier", ()=>(0, _formatSpecifierJs.FormatSpecifier));
+parcelHelpers.export(exports, "precisionFixed", ()=>(0, _precisionFixedJsDefault.default));
+parcelHelpers.export(exports, "precisionPrefix", ()=>(0, _precisionPrefixJsDefault.default));
+parcelHelpers.export(exports, "precisionRound", ()=>(0, _precisionRoundJsDefault.default));
+var _defaultLocaleJs = require("./defaultLocale.js");
+var _defaultLocaleJsDefault = parcelHelpers.interopDefault(_defaultLocaleJs);
+var _localeJs = require("./locale.js");
+var _localeJsDefault = parcelHelpers.interopDefault(_localeJs);
+var _formatSpecifierJs = require("./formatSpecifier.js");
+var _formatSpecifierJsDefault = parcelHelpers.interopDefault(_formatSpecifierJs);
+var _precisionFixedJs = require("./precisionFixed.js");
+var _precisionFixedJsDefault = parcelHelpers.interopDefault(_precisionFixedJs);
+var _precisionPrefixJs = require("./precisionPrefix.js");
+var _precisionPrefixJsDefault = parcelHelpers.interopDefault(_precisionPrefixJs);
+var _precisionRoundJs = require("./precisionRound.js");
+var _precisionRoundJsDefault = parcelHelpers.interopDefault(_precisionRoundJs);
+
+},{"./defaultLocale.js":"g4Ai7","./locale.js":"8sic5","./formatSpecifier.js":"4gfsY","./precisionFixed.js":"kCBOH","./precisionPrefix.js":"anfJX","./precisionRound.js":"djznD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g4Ai7":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "format", ()=>format);
+parcelHelpers.export(exports, "formatPrefix", ()=>formatPrefix);
+var _localeJs = require("./locale.js");
+var _localeJsDefault = parcelHelpers.interopDefault(_localeJs);
+var locale;
+var format;
+var formatPrefix;
+defaultLocale({
+    thousands: ",",
+    grouping: [
+        3
+    ],
+    currency: [
+        "$",
+        ""
+    ]
+});
+function defaultLocale(definition) {
+    locale = (0, _localeJsDefault.default)(definition);
+    format = locale.format;
+    formatPrefix = locale.formatPrefix;
+    return locale;
+}
+exports.default = defaultLocale;
+
+},{"./locale.js":"8sic5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8sic5":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _exponentJs = require("./exponent.js");
+var _exponentJsDefault = parcelHelpers.interopDefault(_exponentJs);
+var _formatGroupJs = require("./formatGroup.js");
+var _formatGroupJsDefault = parcelHelpers.interopDefault(_formatGroupJs);
+var _formatNumeralsJs = require("./formatNumerals.js");
+var _formatNumeralsJsDefault = parcelHelpers.interopDefault(_formatNumeralsJs);
+var _formatSpecifierJs = require("./formatSpecifier.js");
+var _formatSpecifierJsDefault = parcelHelpers.interopDefault(_formatSpecifierJs);
+var _formatTrimJs = require("./formatTrim.js");
+var _formatTrimJsDefault = parcelHelpers.interopDefault(_formatTrimJs);
+var _formatTypesJs = require("./formatTypes.js");
+var _formatTypesJsDefault = parcelHelpers.interopDefault(_formatTypesJs);
+var _formatPrefixAutoJs = require("./formatPrefixAuto.js");
+var _identityJs = require("./identity.js");
+var _identityJsDefault = parcelHelpers.interopDefault(_identityJs);
+var map = Array.prototype.map, prefixes = [
+    "y",
+    "z",
+    "a",
+    "f",
+    "p",
+    "n",
+    "\xb5",
+    "m",
+    "",
+    "k",
+    "M",
+    "G",
+    "T",
+    "P",
+    "E",
+    "Z",
+    "Y"
+];
+exports.default = function(locale) {
+    var group = locale.grouping === undefined || locale.thousands === undefined ? (0, _identityJsDefault.default) : (0, _formatGroupJsDefault.default)(map.call(locale.grouping, Number), locale.thousands + ""), currencyPrefix = locale.currency === undefined ? "" : locale.currency[0] + "", currencySuffix = locale.currency === undefined ? "" : locale.currency[1] + "", decimal = locale.decimal === undefined ? "." : locale.decimal + "", numerals = locale.numerals === undefined ? (0, _identityJsDefault.default) : (0, _formatNumeralsJsDefault.default)(map.call(locale.numerals, String)), percent = locale.percent === undefined ? "%" : locale.percent + "", minus = locale.minus === undefined ? "−" : locale.minus + "", nan = locale.nan === undefined ? "NaN" : locale.nan + "";
+    function newFormat(specifier) {
+        specifier = (0, _formatSpecifierJsDefault.default)(specifier);
+        var fill = specifier.fill, align = specifier.align, sign = specifier.sign, symbol = specifier.symbol, zero = specifier.zero, width = specifier.width, comma = specifier.comma, precision = specifier.precision, trim = specifier.trim, type = specifier.type;
+        // The "n" type is an alias for ",g".
+        if (type === "n") comma = true, type = "g";
+        else if (!(0, _formatTypesJsDefault.default)[type]) precision === undefined && (precision = 12), trim = true, type = "g";
+        // If zero fill is specified, padding goes after sign and before digits.
+        if (zero || fill === "0" && align === "=") zero = true, fill = "0", align = "=";
+        // Compute the prefix and suffix.
+        // For SI-prefix, the suffix is lazily computed.
+        var prefix = symbol === "$" ? currencyPrefix : symbol === "#" && /[boxX]/.test(type) ? "0" + type.toLowerCase() : "", suffix = symbol === "$" ? currencySuffix : /[%p]/.test(type) ? percent : "";
+        // What format function should we use?
+        // Is this an integer type?
+        // Can this type generate exponential notation?
+        var formatType = (0, _formatTypesJsDefault.default)[type], maybeSuffix = /[defgprs%]/.test(type);
+        // Set the default precision if not specified,
+        // or clamp the specified precision to the supported range.
+        // For significant precision, it must be in [1, 21].
+        // For fixed precision, it must be in [0, 20].
+        precision = precision === undefined ? 6 : /[gprs]/.test(type) ? Math.max(1, Math.min(21, precision)) : Math.max(0, Math.min(20, precision));
+        function format(value) {
+            var valuePrefix = prefix, valueSuffix = suffix, i, n, c;
+            if (type === "c") {
+                valueSuffix = formatType(value) + valueSuffix;
+                value = "";
+            } else {
+                value = +value;
+                // Determine the sign. -0 is not less than 0, but 1 / -0 is!
+                var valueNegative = value < 0 || 1 / value < 0;
+                // Perform the initial formatting.
+                value = isNaN(value) ? nan : formatType(Math.abs(value), precision);
+                // Trim insignificant zeros.
+                if (trim) value = (0, _formatTrimJsDefault.default)(value);
+                // If a negative value rounds to zero after formatting, and no explicit positive sign is requested, hide the sign.
+                if (valueNegative && +value === 0 && sign !== "+") valueNegative = false;
+                // Compute the prefix and suffix.
+                valuePrefix = (valueNegative ? sign === "(" ? sign : minus : sign === "-" || sign === "(" ? "" : sign) + valuePrefix;
+                valueSuffix = (type === "s" ? prefixes[8 + (0, _formatPrefixAutoJs.prefixExponent) / 3] : "") + valueSuffix + (valueNegative && sign === "(" ? ")" : "");
+                // Break the formatted value into the integer “value” part that can be
+                // grouped, and fractional or exponential “suffix” part that is not.
+                if (maybeSuffix) {
+                    i = -1, n = value.length;
+                    while(++i < n)if (c = value.charCodeAt(i), 48 > c || c > 57) {
+                        valueSuffix = (c === 46 ? decimal + value.slice(i + 1) : value.slice(i)) + valueSuffix;
+                        value = value.slice(0, i);
+                        break;
+                    }
+                }
+            }
+            // If the fill character is not "0", grouping is applied before padding.
+            if (comma && !zero) value = group(value, Infinity);
+            // Compute the padding.
+            var length = valuePrefix.length + value.length + valueSuffix.length, padding = length < width ? new Array(width - length + 1).join(fill) : "";
+            // If the fill character is "0", grouping is applied after padding.
+            if (comma && zero) value = group(padding + value, padding.length ? width - valueSuffix.length : Infinity), padding = "";
+            // Reconstruct the final output based on the desired alignment.
+            switch(align){
+                case "<":
+                    value = valuePrefix + value + valueSuffix + padding;
+                    break;
+                case "=":
+                    value = valuePrefix + padding + value + valueSuffix;
+                    break;
+                case "^":
+                    value = padding.slice(0, length = padding.length >> 1) + valuePrefix + value + valueSuffix + padding.slice(length);
+                    break;
+                default:
+                    value = padding + valuePrefix + value + valueSuffix;
+                    break;
+            }
+            return numerals(value);
+        }
+        format.toString = function() {
+            return specifier + "";
+        };
+        return format;
+    }
+    function formatPrefix(specifier, value) {
+        var f = newFormat((specifier = (0, _formatSpecifierJsDefault.default)(specifier), specifier.type = "f", specifier)), e = Math.max(-8, Math.min(8, Math.floor((0, _exponentJsDefault.default)(value) / 3))) * 3, k = Math.pow(10, -e), prefix = prefixes[8 + e / 3];
+        return function(value) {
+            return f(k * value) + prefix;
+        };
+    }
+    return {
+        format: newFormat,
+        formatPrefix: formatPrefix
+    };
+};
+
+},{"./exponent.js":"7L05r","./formatGroup.js":"97wNI","./formatNumerals.js":"bnEku","./formatSpecifier.js":"4gfsY","./formatTrim.js":"cGiOx","./formatTypes.js":"aVp9c","./formatPrefixAuto.js":"lOwtK","./identity.js":"9nHXj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7L05r":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _formatDecimalJs = require("./formatDecimal.js");
+exports.default = function(x) {
+    return x = (0, _formatDecimalJs.formatDecimalParts)(Math.abs(x)), x ? x[1] : NaN;
+};
+
+},{"./formatDecimal.js":"fkS16","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fkS16":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+// Computes the decimal coefficient and exponent of the specified number x with
+// significant digits p, where x is positive and p is in [1, 21] or undefined.
+// For example, formatDecimalParts(1.23) returns ["123", 0].
+parcelHelpers.export(exports, "formatDecimalParts", ()=>formatDecimalParts);
+exports.default = function(x) {
+    return Math.abs(x = Math.round(x)) >= 1e21 ? x.toLocaleString("en").replace(/,/g, "") : x.toString(10);
+};
+function formatDecimalParts(x, p) {
+    if ((i = (x = p ? x.toExponential(p - 1) : x.toExponential()).indexOf("e")) < 0) return null; // NaN, ±Infinity
+    var i, coefficient = x.slice(0, i);
+    // The string returned by toExponential either has the form \d\.\d+e[-+]\d+
+    // (e.g., 1.2e+3) or the form \de[-+]\d+ (e.g., 1e+3).
+    return [
+        coefficient.length > 1 ? coefficient[0] + coefficient.slice(2) : coefficient,
+        +x.slice(i + 1)
+    ];
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"97wNI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(grouping, thousands) {
+    return function(value, width) {
+        var i = value.length, t = [], j = 0, g = grouping[0], length = 0;
+        while(i > 0 && g > 0){
+            if (length + g + 1 > width) g = Math.max(1, width - length);
+            t.push(value.substring(i -= g, i + g));
+            if ((length += g + 1) > width) break;
+            g = grouping[j = (j + 1) % grouping.length];
+        }
+        return t.reverse().join(thousands);
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bnEku":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(numerals) {
+    return function(value) {
+        return value.replace(/[0-9]/g, function(i) {
+            return numerals[+i];
+        });
+    };
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4gfsY":[function(require,module,exports) {
+// [[fill]align][sign][symbol][0][width][,][.precision][~][type]
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "FormatSpecifier", ()=>FormatSpecifier);
+var re = /^(?:(.)?([<>=^]))?([+\-( ])?([$#])?(0)?(\d+)?(,)?(\.\d+)?(~)?([a-z%])?$/i;
+function formatSpecifier(specifier) {
+    if (!(match = re.exec(specifier))) throw new Error("invalid format: " + specifier);
+    var match;
+    return new FormatSpecifier({
+        fill: match[1],
+        align: match[2],
+        sign: match[3],
+        symbol: match[4],
+        zero: match[5],
+        width: match[6],
+        comma: match[7],
+        precision: match[8] && match[8].slice(1),
+        trim: match[9],
+        type: match[10]
+    });
+}
+exports.default = formatSpecifier;
+formatSpecifier.prototype = FormatSpecifier.prototype; // instanceof
+function FormatSpecifier(specifier) {
+    this.fill = specifier.fill === undefined ? " " : specifier.fill + "";
+    this.align = specifier.align === undefined ? ">" : specifier.align + "";
+    this.sign = specifier.sign === undefined ? "-" : specifier.sign + "";
+    this.symbol = specifier.symbol === undefined ? "" : specifier.symbol + "";
+    this.zero = !!specifier.zero;
+    this.width = specifier.width === undefined ? undefined : +specifier.width;
+    this.comma = !!specifier.comma;
+    this.precision = specifier.precision === undefined ? undefined : +specifier.precision;
+    this.trim = !!specifier.trim;
+    this.type = specifier.type === undefined ? "" : specifier.type + "";
+}
+FormatSpecifier.prototype.toString = function() {
+    return this.fill + this.align + this.sign + this.symbol + (this.zero ? "0" : "") + (this.width === undefined ? "" : Math.max(1, this.width | 0)) + (this.comma ? "," : "") + (this.precision === undefined ? "" : "." + Math.max(0, this.precision | 0)) + (this.trim ? "~" : "") + this.type;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cGiOx":[function(require,module,exports) {
+// Trims insignificant zeros, e.g., replaces 1.2000k with 1.2k.
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(s) {
+    out: for(var n = s.length, i = 1, i0 = -1, i1; i < n; ++i)switch(s[i]){
+        case ".":
+            i0 = i1 = i;
+            break;
+        case "0":
+            if (i0 === 0) i0 = i;
+            i1 = i;
+            break;
+        default:
+            if (!+s[i]) break out;
+            if (i0 > 0) i0 = 0;
+            break;
+    }
+    return i0 > 0 ? s.slice(0, i0) + s.slice(i1 + 1) : s;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aVp9c":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _formatDecimalJs = require("./formatDecimal.js");
+var _formatDecimalJsDefault = parcelHelpers.interopDefault(_formatDecimalJs);
+var _formatPrefixAutoJs = require("./formatPrefixAuto.js");
+var _formatPrefixAutoJsDefault = parcelHelpers.interopDefault(_formatPrefixAutoJs);
+var _formatRoundedJs = require("./formatRounded.js");
+var _formatRoundedJsDefault = parcelHelpers.interopDefault(_formatRoundedJs);
+exports.default = {
+    "%": (x, p)=>(x * 100).toFixed(p),
+    "b": (x)=>Math.round(x).toString(2),
+    "c": (x)=>x + "",
+    "d": (0, _formatDecimalJsDefault.default),
+    "e": (x, p)=>x.toExponential(p),
+    "f": (x, p)=>x.toFixed(p),
+    "g": (x, p)=>x.toPrecision(p),
+    "o": (x)=>Math.round(x).toString(8),
+    "p": (x, p)=>(0, _formatRoundedJsDefault.default)(x * 100, p),
+    "r": (0, _formatRoundedJsDefault.default),
+    "s": (0, _formatPrefixAutoJsDefault.default),
+    "X": (x)=>Math.round(x).toString(16).toUpperCase(),
+    "x": (x)=>Math.round(x).toString(16)
+};
+
+},{"./formatDecimal.js":"fkS16","./formatPrefixAuto.js":"lOwtK","./formatRounded.js":"gq71u","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lOwtK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "prefixExponent", ()=>prefixExponent);
+var _formatDecimalJs = require("./formatDecimal.js");
+var prefixExponent;
+exports.default = function(x, p) {
+    var d = (0, _formatDecimalJs.formatDecimalParts)(x, p);
+    if (!d) return x + "";
+    var coefficient = d[0], exponent = d[1], i = exponent - (prefixExponent = Math.max(-8, Math.min(8, Math.floor(exponent / 3))) * 3) + 1, n = coefficient.length;
+    return i === n ? coefficient : i > n ? coefficient + new Array(i - n + 1).join("0") : i > 0 ? coefficient.slice(0, i) + "." + coefficient.slice(i) : "0." + new Array(1 - i).join("0") + (0, _formatDecimalJs.formatDecimalParts)(x, Math.max(0, p + i - 1))[0]; // less than 1y!
+};
+
+},{"./formatDecimal.js":"fkS16","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gq71u":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _formatDecimalJs = require("./formatDecimal.js");
+exports.default = function(x, p) {
+    var d = (0, _formatDecimalJs.formatDecimalParts)(x, p);
+    if (!d) return x + "";
+    var coefficient = d[0], exponent = d[1];
+    return exponent < 0 ? "0." + new Array(-exponent).join("0") + coefficient : coefficient.length > exponent + 1 ? coefficient.slice(0, exponent + 1) + "." + coefficient.slice(exponent + 1) : coefficient + new Array(exponent - coefficient.length + 2).join("0");
+};
+
+},{"./formatDecimal.js":"fkS16","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9nHXj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+exports.default = function(x) {
+    return x;
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kCBOH":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _exponentJs = require("./exponent.js");
+var _exponentJsDefault = parcelHelpers.interopDefault(_exponentJs);
+exports.default = function(step) {
+    return Math.max(0, -(0, _exponentJsDefault.default)(Math.abs(step)));
+};
+
+},{"./exponent.js":"7L05r","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"anfJX":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _exponentJs = require("./exponent.js");
+var _exponentJsDefault = parcelHelpers.interopDefault(_exponentJs);
+exports.default = function(step, value) {
+    return Math.max(0, Math.max(-8, Math.min(8, Math.floor((0, _exponentJsDefault.default)(value) / 3))) * 3 - (0, _exponentJsDefault.default)(Math.abs(step)));
+};
+
+},{"./exponent.js":"7L05r","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"djznD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _exponentJs = require("./exponent.js");
+var _exponentJsDefault = parcelHelpers.interopDefault(_exponentJs);
+exports.default = function(step, max) {
+    step = Math.abs(step), max = Math.abs(max) - step;
+    return Math.max(0, (0, _exponentJsDefault.default)(max) - (0, _exponentJsDefault.default)(step)) + 1;
+};
+
+},{"./exponent.js":"7L05r","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hNjKg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "implicit", ()=>implicit);
+var _d3Array = require("d3-array");
+var _initJs = require("./init.js");
+const implicit = Symbol("implicit");
+function ordinal() {
+    var index = new (0, _d3Array.InternMap)(), domain = [], range = [], unknown = implicit;
+    function scale(d) {
+        let i = index.get(d);
+        if (i === undefined) {
+            if (unknown !== implicit) return unknown;
+            index.set(d, i = domain.push(d) - 1);
+        }
+        return range[i % range.length];
+    }
+    scale.domain = function(_) {
+        if (!arguments.length) return domain.slice();
+        domain = [], index = new (0, _d3Array.InternMap)();
+        for (const value of _){
+            if (index.has(value)) continue;
+            index.set(value, domain.push(value) - 1);
+        }
+        return scale;
+    };
+    scale.range = function(_) {
+        return arguments.length ? (range = Array.from(_), scale) : range.slice();
+    };
+    scale.unknown = function(_) {
+        return arguments.length ? (unknown = _, scale) : unknown;
+    };
+    scale.copy = function() {
+        return ordinal(domain, range).unknown(unknown);
+    };
+    (0, _initJs.initRange).apply(scale, arguments);
+    return scale;
+}
+exports.default = ordinal;
+
+},{"d3-array":"1yX2W","./init.js":"kp8lc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8e44u":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _continuousJs = require("./continuous.js");
+var _continuousJsDefault = parcelHelpers.interopDefault(_continuousJs);
+var _initJs = require("./init.js");
+var _linearJs = require("./linear.js");
+var _numberJs = require("./number.js");
+var _numberJsDefault = parcelHelpers.interopDefault(_numberJs);
+function square(x) {
+    return Math.sign(x) * x * x;
+}
+function unsquare(x) {
+    return Math.sign(x) * Math.sqrt(Math.abs(x));
+}
+function radial() {
+    var squared = (0, _continuousJsDefault.default)(), range = [
+        0,
+        1
+    ], round = false, unknown;
+    function scale(x) {
+        var y = unsquare(squared(x));
+        return isNaN(y) ? unknown : round ? Math.round(y) : y;
+    }
+    scale.invert = function(y) {
+        return squared.invert(square(y));
+    };
+    scale.domain = function(_) {
+        return arguments.length ? (squared.domain(_), scale) : squared.domain();
+    };
+    scale.range = function(_) {
+        return arguments.length ? (squared.range((range = Array.from(_, (0, _numberJsDefault.default))).map(square)), scale) : range.slice();
+    };
+    scale.rangeRound = function(_) {
+        return scale.range(_).round(true);
+    };
+    scale.round = function(_) {
+        return arguments.length ? (round = !!_, scale) : round;
+    };
+    scale.clamp = function(_) {
+        return arguments.length ? (squared.clamp(_), scale) : squared.clamp();
+    };
+    scale.unknown = function(_) {
+        return arguments.length ? (unknown = _, scale) : unknown;
+    };
+    scale.copy = function() {
+        return radial(squared.domain(), range).round(round).clamp(squared.clamp()).unknown(unknown);
+    };
+    (0, _initJs.initRange).apply(scale, arguments);
+    return (0, _linearJs.linearish)(scale);
+}
+exports.default = radial;
+
+},{"./continuous.js":"1LsCM","./init.js":"kp8lc","./linear.js":"lob4K","./number.js":"k9Lyx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hXwQz":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "drawViz", ()=>drawViz);
 var _grid = require("./grid");
+var _channel = require("./channel");
 var _d3Selection = require("d3-selection");
+var _d3Transition = require("d3-transition");
 const drawViz = (channels)=>{
     // Append SVG container
     const svg = (0, _d3Selection.select)("#viz").append("svg");
+    // Append blur
+    svg.append("filter").attr("id", "blur").append("feGaussianBlur").attr("stdDeviation", 3);
     // Set the grid values
     const colArray = [
         5,
@@ -1716,28 +3854,53 @@ const drawViz = (channels)=>{
     ];
     const breakPoints = [
         1400,
-        768,
+        1200,
         500
     ];
-    const rowHeight = 150;
-    const updateGrid = (isFirst)=>{
-        const annotatedData = (0, _grid.createGrid)(channels, colArray, rowHeight, breakPoints);
+    const rowHeight = 200;
+    const drawElements = (annotatedData)=>{
+        // svg
+        // .selectAll("rect")
+        // .data(annotatedData.data)
+        // .join("rect")
+        //   .attr("x", d => d.x)
+        //   .attr("y", d => d.y)
+        //   .attr("width", annotatedData.colWidth)
+        //   .attr("height", annotatedData.rowHeight)
+        //   .attr("fill", "none")
+        //   .attr("stroke", "cyan");
         svg.attr("width", annotatedData.width).attr("height", annotatedData.height);
-        if (isFirst) svg.selectAll("rect").data(annotatedData.data).join("rect").attr("x", (d)=>d.x).attr("y", (d)=>d.y).attr("width", annotatedData.colWidth).attr("height", annotatedData.rowHeight).attr("fill", "none").attr("stroke", "cyan");
-        else svg.selectAll("rect").transition().attr("x", (d)=>d.x).attr("y", (d)=>d.y).attr("width", annotatedData.colWidth).attr("height", annotatedData.rowHeight);
+        svg.selectAll(".channel").data(annotatedData.data).join("g").attr("class", (d)=>`channel ${d.id}`).attr("transform", (d)=>`translate(${d.x}, ${d.y})`);
+        annotatedData.data.forEach((channel)=>{
+            (0, _channel.drawChannel)(channel, annotatedData.colWidth, annotatedData.rowHeight);
+        });
     };
-    window.addEventListener("resize", updateGrid);
-    updateGrid(true);
+    const updateGrid = (annotatedData)=>{
+        svg.attr("width", annotatedData.width).attr("height", annotatedData.height);
+        // svg
+        //   .selectAll("rect")
+        //   .transition()
+        //     .attr("x", d => d.x)
+        //     .attr("y", d => d.y)
+        //     .attr("width", annotatedData.colWidth)
+        //     .attr("height", annotatedData.rowHeight);
+        svg.selectAll(".channel").transition().attr("transform", (d)=>`translate(${d.x}, ${d.y})`);
+        annotatedData.data.forEach((channel)=>{
+            (0, _channel.updateChannel)(channel, annotatedData.colWidth, annotatedData.rowHeight);
+        });
+    };
+    drawElements((0, _grid.createGrid)(channels, colArray, rowHeight, breakPoints));
+    window.addEventListener("resize", ()=>updateGrid((0, _grid.createGrid)(channels, colArray, rowHeight, breakPoints)));
 };
 
-},{"./grid":"5bMWt","d3-selection":"gn9gd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5bMWt":[function(require,module,exports) {
+},{"./grid":"5bMWt","d3-selection":"gn9gd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./channel":"5zQkZ","d3-transition":"4lorl"}],"5bMWt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createGrid", ()=>createGrid);
 const createGrid = (data, colArray, rowHeight, breakPoints)=>{
     const padding = 30;
     const container = breakPoints[0];
-    const svgWidth = window.innerWidth >= container ? container - 2 * padding : window.innerWidth - 2 * padding;
+    const svgWidth = window.innerWidth >= container ? 0.8333 * container - 2 * padding : window.innerWidth > 768 ? 0.8333 * window.innerWidth - 2 * padding : window.innerWidth - 2 * padding;
     let numColumns;
     switch(true){
         case window.innerWidth <= breakPoints[2]:
@@ -1770,9 +3933,1175 @@ const createGrid = (data, colArray, rowHeight, breakPoints)=>{
             index += 1;
         }
     }
-    console.log("annotatedData", annotatedData);
     return annotatedData;
 };
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5zQkZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "drawChannel", ()=>drawChannel);
+parcelHelpers.export(exports, "updateChannel", ()=>updateChannel);
+var _d3Selection = require("d3-selection");
+var _d3Transition = require("d3-transition");
+var _scales = require("./scales");
+const rectWidth = 20;
+const rectHeight = 105;
+const drawChannel = (d, colWidth, rowHeight)=>{
+    const selection = (0, _d3Selection.select)(`.${d.id}`);
+    // Append text
+    const textContainer = selection.append("foreignObject").attr("x", 0).attr("y", rowHeight - 60).attr("width", colWidth).attr("height", 60).append("xhtml:a").attr("href", (d)=>d.link);
+    textContainer.append("xhtml:div").attr("class", "label-name").style("text-align", "center").style("line-height", "1.2").text(d.name);
+    textContainer.append("xhtml:div").attr("class", "label-country").style("text-align", "center").style("font-size", "15px").style("line-height", "1.2").text(d.country);
+    // Append language
+    selection.append("rect").attr("x", colWidth / 2 - (0, _scales.radiusScale)(d.subscribers_millions) - rectWidth / 2).attr("y", 85 - rectHeight / 2).attr("width", rectWidth).attr("height", rectHeight).attr("fill", "#343330");
+    // Append circle
+    selection.append("circle").attr("class", "main-circle").attr("cx", colWidth / 2).attr("cy", 90).attr("r", (0, _scales.radiusScale)(d.subscribers_millions)).attr("fill", (0, _scales.colorScale)(d.category)).attr("filter", "url(#blur)");
+    // Append language
+    selection.append("text").attr("transform", `translate(${colWidth / 2 - (0, _scales.radiusScale)(d.subscribers_millions) + 5}, 130) rotate(-90)`).attr("fill", "#fff").text(d.primary_language);
+    // Append is brand indicator
+    if (d.isBrandChannel) selection.append("circle").attr("class", "is-brand").attr("cx", colWidth / 2 - (0, _scales.radiusScale)(d.subscribers_millions)).attr("cy", 24).attr("r", 3).attr("fill", "#343330");
+};
+const updateChannel = (d, colWidth, rowHeight)=>{
+    const selection = (0, _d3Selection.select)(`.${d.id}`);
+    selection.select("foreignObject").transition().attr("width", colWidth);
+    selection.select(".label-name").transition().attr("x", colWidth / 2).attr("y", rowHeight - 40);
+    selection.select(".label-country").transition().attr("x", colWidth / 2).attr("y", rowHeight - 20);
+    selection.select("rect").transition().attr("x", colWidth / 2 - (0, _scales.radiusScale)(d.subscribers_millions) - rectWidth / 2);
+    selection.select(".main-circle").transition().attr("cx", colWidth / 2);
+    selection.select("text").transition().attr("transform", `translate(${colWidth / 2 - (0, _scales.radiusScale)(d.subscribers_millions) + 5}, 130) rotate(-90)`);
+    selection.select(".is-brand").transition().attr("cx", colWidth / 2 - (0, _scales.radiusScale)(d.subscribers_millions));
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","d3-selection":"gn9gd","d3-transition":"4lorl","./scales":"NYsfE"}],"4lorl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "transition", ()=>(0, _indexJsDefault.default));
+parcelHelpers.export(exports, "active", ()=>(0, _activeJsDefault.default));
+parcelHelpers.export(exports, "interrupt", ()=>(0, _interruptJsDefault.default));
+var _indexJs = require("./selection/index.js");
+var _indexJs1 = require("./transition/index.js");
+var _indexJsDefault = parcelHelpers.interopDefault(_indexJs1);
+var _activeJs = require("./active.js");
+var _activeJsDefault = parcelHelpers.interopDefault(_activeJs);
+var _interruptJs = require("./interrupt.js");
+var _interruptJsDefault = parcelHelpers.interopDefault(_interruptJs);
+
+},{"./selection/index.js":"heX1u","./transition/index.js":"h2Srb","./active.js":false,"./interrupt.js":"j3g05","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"heX1u":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _d3Selection = require("d3-selection");
+var _interruptJs = require("./interrupt.js");
+var _interruptJsDefault = parcelHelpers.interopDefault(_interruptJs);
+var _transitionJs = require("./transition.js");
+var _transitionJsDefault = parcelHelpers.interopDefault(_transitionJs);
+(0, _d3Selection.selection).prototype.interrupt = (0, _interruptJsDefault.default);
+(0, _d3Selection.selection).prototype.transition = (0, _transitionJsDefault.default);
+
+},{"d3-selection":"gn9gd","./interrupt.js":"ecsW0","./transition.js":"aZzEX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ecsW0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _interruptJs = require("../interrupt.js");
+var _interruptJsDefault = parcelHelpers.interopDefault(_interruptJs);
+exports.default = function(name) {
+    return this.each(function() {
+        (0, _interruptJsDefault.default)(this, name);
+    });
+};
+
+},{"../interrupt.js":"j3g05","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"j3g05":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./transition/schedule.js");
+exports.default = function(node, name) {
+    var schedules = node.__transition, schedule, active, empty = true, i;
+    if (!schedules) return;
+    name = name == null ? null : name + "";
+    for(i in schedules){
+        if ((schedule = schedules[i]).name !== name) {
+            empty = false;
+            continue;
+        }
+        active = schedule.state > (0, _scheduleJs.STARTING) && schedule.state < (0, _scheduleJs.ENDING);
+        schedule.state = (0, _scheduleJs.ENDED);
+        schedule.timer.stop();
+        schedule.on.call(active ? "interrupt" : "cancel", node, node.__data__, schedule.index, schedule.group);
+        delete schedules[i];
+    }
+    if (empty) delete node.__transition;
+};
+
+},{"./transition/schedule.js":"de74c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"de74c":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "CREATED", ()=>CREATED);
+parcelHelpers.export(exports, "SCHEDULED", ()=>SCHEDULED);
+parcelHelpers.export(exports, "STARTING", ()=>STARTING);
+parcelHelpers.export(exports, "STARTED", ()=>STARTED);
+parcelHelpers.export(exports, "RUNNING", ()=>RUNNING);
+parcelHelpers.export(exports, "ENDING", ()=>ENDING);
+parcelHelpers.export(exports, "ENDED", ()=>ENDED);
+parcelHelpers.export(exports, "init", ()=>init);
+parcelHelpers.export(exports, "set", ()=>set);
+parcelHelpers.export(exports, "get", ()=>get);
+var _d3Dispatch = require("d3-dispatch");
+var _d3Timer = require("d3-timer");
+var emptyOn = (0, _d3Dispatch.dispatch)("start", "end", "cancel", "interrupt");
+var emptyTween = [];
+var CREATED = 0;
+var SCHEDULED = 1;
+var STARTING = 2;
+var STARTED = 3;
+var RUNNING = 4;
+var ENDING = 5;
+var ENDED = 6;
+exports.default = function(node, name, id, index, group, timing) {
+    var schedules = node.__transition;
+    if (!schedules) node.__transition = {};
+    else if (id in schedules) return;
+    create(node, id, {
+        name: name,
+        index: index,
+        group: group,
+        on: emptyOn,
+        tween: emptyTween,
+        time: timing.time,
+        delay: timing.delay,
+        duration: timing.duration,
+        ease: timing.ease,
+        timer: null,
+        state: CREATED
+    });
+};
+function init(node, id) {
+    var schedule = get(node, id);
+    if (schedule.state > CREATED) throw new Error("too late; already scheduled");
+    return schedule;
+}
+function set(node, id) {
+    var schedule = get(node, id);
+    if (schedule.state > STARTED) throw new Error("too late; already running");
+    return schedule;
+}
+function get(node, id) {
+    var schedule = node.__transition;
+    if (!schedule || !(schedule = schedule[id])) throw new Error("transition not found");
+    return schedule;
+}
+function create(node, id, self) {
+    var schedules = node.__transition, tween;
+    // Initialize the self timer when the transition is created.
+    // Note the actual delay is not known until the first callback!
+    schedules[id] = self;
+    self.timer = (0, _d3Timer.timer)(schedule, 0, self.time);
+    function schedule(elapsed) {
+        self.state = SCHEDULED;
+        self.timer.restart(start, self.delay, self.time);
+        // If the elapsed delay is less than our first sleep, start immediately.
+        if (self.delay <= elapsed) start(elapsed - self.delay);
+    }
+    function start(elapsed) {
+        var i, j, n, o;
+        // If the state is not SCHEDULED, then we previously errored on start.
+        if (self.state !== SCHEDULED) return stop();
+        for(i in schedules){
+            o = schedules[i];
+            if (o.name !== self.name) continue;
+            // While this element already has a starting transition during this frame,
+            // defer starting an interrupting transition until that transition has a
+            // chance to tick (and possibly end); see d3/d3-transition#54!
+            if (o.state === STARTED) return (0, _d3Timer.timeout)(start);
+            // Interrupt the active transition, if any.
+            if (o.state === RUNNING) {
+                o.state = ENDED;
+                o.timer.stop();
+                o.on.call("interrupt", node, node.__data__, o.index, o.group);
+                delete schedules[i];
+            } else if (+i < id) {
+                o.state = ENDED;
+                o.timer.stop();
+                o.on.call("cancel", node, node.__data__, o.index, o.group);
+                delete schedules[i];
+            }
+        }
+        // Defer the first tick to end of the current frame; see d3/d3#1576.
+        // Note the transition may be canceled after start and before the first tick!
+        // Note this must be scheduled before the start event; see d3/d3-transition#16!
+        // Assuming this is successful, subsequent callbacks go straight to tick.
+        (0, _d3Timer.timeout)(function() {
+            if (self.state === STARTED) {
+                self.state = RUNNING;
+                self.timer.restart(tick, self.delay, self.time);
+                tick(elapsed);
+            }
+        });
+        // Dispatch the start event.
+        // Note this must be done before the tween are initialized.
+        self.state = STARTING;
+        self.on.call("start", node, node.__data__, self.index, self.group);
+        if (self.state !== STARTING) return; // interrupted
+        self.state = STARTED;
+        // Initialize the tween, deleting null tween.
+        tween = new Array(n = self.tween.length);
+        for(i = 0, j = -1; i < n; ++i)if (o = self.tween[i].value.call(node, node.__data__, self.index, self.group)) tween[++j] = o;
+        tween.length = j + 1;
+    }
+    function tick(elapsed) {
+        var t = elapsed < self.duration ? self.ease.call(null, elapsed / self.duration) : (self.timer.restart(stop), self.state = ENDING, 1), i = -1, n = tween.length;
+        while(++i < n)tween[i].call(node, t);
+        // Dispatch the end event.
+        if (self.state === ENDING) {
+            self.on.call("end", node, node.__data__, self.index, self.group);
+            stop();
+        }
+    }
+    function stop() {
+        self.state = ENDED;
+        self.timer.stop();
+        delete schedules[id];
+        for(var i in schedules)return; // eslint-disable-line no-unused-vars
+        delete node.__transition;
+    }
+}
+
+},{"d3-dispatch":"5WtHO","d3-timer":"7TEss","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5WtHO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "dispatch", ()=>(0, _dispatchJsDefault.default));
+var _dispatchJs = require("./dispatch.js");
+var _dispatchJsDefault = parcelHelpers.interopDefault(_dispatchJs);
+
+},{"./dispatch.js":"8Hmyd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8Hmyd":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var noop = {
+    value: ()=>{}
+};
+function dispatch() {
+    for(var i = 0, n = arguments.length, _ = {}, t; i < n; ++i){
+        if (!(t = arguments[i] + "") || t in _ || /[\s.]/.test(t)) throw new Error("illegal type: " + t);
+        _[t] = [];
+    }
+    return new Dispatch(_);
+}
+function Dispatch(_) {
+    this._ = _;
+}
+function parseTypenames(typenames, types) {
+    return typenames.trim().split(/^|\s+/).map(function(t) {
+        var name = "", i = t.indexOf(".");
+        if (i >= 0) name = t.slice(i + 1), t = t.slice(0, i);
+        if (t && !types.hasOwnProperty(t)) throw new Error("unknown type: " + t);
+        return {
+            type: t,
+            name: name
+        };
+    });
+}
+Dispatch.prototype = dispatch.prototype = {
+    constructor: Dispatch,
+    on: function(typename, callback) {
+        var _ = this._, T = parseTypenames(typename + "", _), t, i = -1, n = T.length;
+        // If no callback was specified, return the callback of the given type and name.
+        if (arguments.length < 2) {
+            while(++i < n)if ((t = (typename = T[i]).type) && (t = get(_[t], typename.name))) return t;
+            return;
+        }
+        // If a type was specified, set the callback for the given type and name.
+        // Otherwise, if a null callback was specified, remove callbacks of the given name.
+        if (callback != null && typeof callback !== "function") throw new Error("invalid callback: " + callback);
+        while(++i < n){
+            if (t = (typename = T[i]).type) _[t] = set(_[t], typename.name, callback);
+            else if (callback == null) for(t in _)_[t] = set(_[t], typename.name, null);
+        }
+        return this;
+    },
+    copy: function() {
+        var copy = {}, _ = this._;
+        for(var t in _)copy[t] = _[t].slice();
+        return new Dispatch(copy);
+    },
+    call: function(type, that) {
+        if ((n = arguments.length - 2) > 0) for(var args = new Array(n), i = 0, n, t; i < n; ++i)args[i] = arguments[i + 2];
+        if (!this._.hasOwnProperty(type)) throw new Error("unknown type: " + type);
+        for(t = this._[type], i = 0, n = t.length; i < n; ++i)t[i].value.apply(that, args);
+    },
+    apply: function(type, that, args) {
+        if (!this._.hasOwnProperty(type)) throw new Error("unknown type: " + type);
+        for(var t = this._[type], i = 0, n = t.length; i < n; ++i)t[i].value.apply(that, args);
+    }
+};
+function get(type, name) {
+    for(var i = 0, n = type.length, c; i < n; ++i){
+        if ((c = type[i]).name === name) return c.value;
+    }
+}
+function set(type, name, callback) {
+    for(var i = 0, n = type.length; i < n; ++i)if (type[i].name === name) {
+        type[i] = noop, type = type.slice(0, i).concat(type.slice(i + 1));
+        break;
+    }
+    if (callback != null) type.push({
+        name: name,
+        value: callback
+    });
+    return type;
+}
+exports.default = dispatch;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7TEss":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "now", ()=>(0, _timerJs.now));
+parcelHelpers.export(exports, "timer", ()=>(0, _timerJs.timer));
+parcelHelpers.export(exports, "timerFlush", ()=>(0, _timerJs.timerFlush));
+parcelHelpers.export(exports, "timeout", ()=>(0, _timeoutJsDefault.default));
+parcelHelpers.export(exports, "interval", ()=>(0, _intervalJsDefault.default));
+var _timerJs = require("./timer.js");
+var _timeoutJs = require("./timeout.js");
+var _timeoutJsDefault = parcelHelpers.interopDefault(_timeoutJs);
+var _intervalJs = require("./interval.js");
+var _intervalJsDefault = parcelHelpers.interopDefault(_intervalJs);
+
+},{"./timer.js":"bfF2F","./timeout.js":"ioM7O","./interval.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bfF2F":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "now", ()=>now);
+parcelHelpers.export(exports, "Timer", ()=>Timer);
+parcelHelpers.export(exports, "timer", ()=>timer);
+parcelHelpers.export(exports, "timerFlush", ()=>timerFlush);
+var frame = 0, timeout = 0, interval = 0, pokeDelay = 1000, taskHead, taskTail, clockLast = 0, clockNow = 0, clockSkew = 0, clock = typeof performance === "object" && performance.now ? performance : Date, setFrame = typeof window === "object" && window.requestAnimationFrame ? window.requestAnimationFrame.bind(window) : function(f) {
+    setTimeout(f, 17);
+};
+function now() {
+    return clockNow || (setFrame(clearNow), clockNow = clock.now() + clockSkew);
+}
+function clearNow() {
+    clockNow = 0;
+}
+function Timer() {
+    this._call = this._time = this._next = null;
+}
+Timer.prototype = timer.prototype = {
+    constructor: Timer,
+    restart: function(callback, delay, time) {
+        if (typeof callback !== "function") throw new TypeError("callback is not a function");
+        time = (time == null ? now() : +time) + (delay == null ? 0 : +delay);
+        if (!this._next && taskTail !== this) {
+            if (taskTail) taskTail._next = this;
+            else taskHead = this;
+            taskTail = this;
+        }
+        this._call = callback;
+        this._time = time;
+        sleep();
+    },
+    stop: function() {
+        if (this._call) {
+            this._call = null;
+            this._time = Infinity;
+            sleep();
+        }
+    }
+};
+function timer(callback, delay, time) {
+    var t = new Timer;
+    t.restart(callback, delay, time);
+    return t;
+}
+function timerFlush() {
+    now(); // Get the current time, if not already set.
+    ++frame; // Pretend we’ve set an alarm, if we haven’t already.
+    var t = taskHead, e;
+    while(t){
+        if ((e = clockNow - t._time) >= 0) t._call.call(undefined, e);
+        t = t._next;
+    }
+    --frame;
+}
+function wake() {
+    clockNow = (clockLast = clock.now()) + clockSkew;
+    frame = timeout = 0;
+    try {
+        timerFlush();
+    } finally{
+        frame = 0;
+        nap();
+        clockNow = 0;
+    }
+}
+function poke() {
+    var now = clock.now(), delay = now - clockLast;
+    if (delay > pokeDelay) clockSkew -= delay, clockLast = now;
+}
+function nap() {
+    var t0, t1 = taskHead, t2, time = Infinity;
+    while(t1)if (t1._call) {
+        if (time > t1._time) time = t1._time;
+        t0 = t1, t1 = t1._next;
+    } else {
+        t2 = t1._next, t1._next = null;
+        t1 = t0 ? t0._next = t2 : taskHead = t2;
+    }
+    taskTail = t0;
+    sleep(time);
+}
+function sleep(time) {
+    if (frame) return; // Soonest alarm already set, or will be.
+    if (timeout) timeout = clearTimeout(timeout);
+    var delay = time - clockNow; // Strictly less than if we recomputed clockNow.
+    if (delay > 24) {
+        if (time < Infinity) timeout = setTimeout(wake, time - clock.now() - clockSkew);
+        if (interval) interval = clearInterval(interval);
+    } else {
+        if (!interval) clockLast = clock.now(), interval = setInterval(poke, pokeDelay);
+        frame = 1, setFrame(wake);
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ioM7O":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _timerJs = require("./timer.js");
+exports.default = function(callback, delay, time) {
+    var t = new (0, _timerJs.Timer);
+    delay = delay == null ? 0 : +delay;
+    t.restart((elapsed)=>{
+        t.stop();
+        callback(elapsed + delay);
+    }, delay, time);
+    return t;
+};
+
+},{"./timer.js":"bfF2F","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aZzEX":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("../transition/index.js");
+var _scheduleJs = require("../transition/schedule.js");
+var _scheduleJsDefault = parcelHelpers.interopDefault(_scheduleJs);
+var _d3Ease = require("d3-ease");
+var _d3Timer = require("d3-timer");
+var defaultTiming = {
+    time: null,
+    delay: 0,
+    duration: 250,
+    ease: (0, _d3Ease.easeCubicInOut)
+};
+function inherit(node, id) {
+    var timing;
+    while(!(timing = node.__transition) || !(timing = timing[id])){
+        if (!(node = node.parentNode)) throw new Error(`transition ${id} not found`);
+    }
+    return timing;
+}
+exports.default = function(name) {
+    var id, timing;
+    if (name instanceof (0, _indexJs.Transition)) id = name._id, name = name._name;
+    else id = (0, _indexJs.newId)(), (timing = defaultTiming).time = (0, _d3Timer.now)(), name = name == null ? null : name + "";
+    for(var groups = this._groups, m = groups.length, j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, node, i = 0; i < n; ++i)if (node = group[i]) (0, _scheduleJsDefault.default)(node, name, id, i, group, timing || inherit(node, id));
+    }
+    return new (0, _indexJs.Transition)(groups, this._parents, name, id);
+};
+
+},{"../transition/index.js":"h2Srb","../transition/schedule.js":"de74c","d3-ease":"8sCNl","d3-timer":"7TEss","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h2Srb":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Transition", ()=>Transition);
+parcelHelpers.export(exports, "newId", ()=>newId);
+var _d3Selection = require("d3-selection");
+var _attrJs = require("./attr.js");
+var _attrJsDefault = parcelHelpers.interopDefault(_attrJs);
+var _attrTweenJs = require("./attrTween.js");
+var _attrTweenJsDefault = parcelHelpers.interopDefault(_attrTweenJs);
+var _delayJs = require("./delay.js");
+var _delayJsDefault = parcelHelpers.interopDefault(_delayJs);
+var _durationJs = require("./duration.js");
+var _durationJsDefault = parcelHelpers.interopDefault(_durationJs);
+var _easeJs = require("./ease.js");
+var _easeJsDefault = parcelHelpers.interopDefault(_easeJs);
+var _easeVaryingJs = require("./easeVarying.js");
+var _easeVaryingJsDefault = parcelHelpers.interopDefault(_easeVaryingJs);
+var _filterJs = require("./filter.js");
+var _filterJsDefault = parcelHelpers.interopDefault(_filterJs);
+var _mergeJs = require("./merge.js");
+var _mergeJsDefault = parcelHelpers.interopDefault(_mergeJs);
+var _onJs = require("./on.js");
+var _onJsDefault = parcelHelpers.interopDefault(_onJs);
+var _removeJs = require("./remove.js");
+var _removeJsDefault = parcelHelpers.interopDefault(_removeJs);
+var _selectJs = require("./select.js");
+var _selectJsDefault = parcelHelpers.interopDefault(_selectJs);
+var _selectAllJs = require("./selectAll.js");
+var _selectAllJsDefault = parcelHelpers.interopDefault(_selectAllJs);
+var _selectionJs = require("./selection.js");
+var _selectionJsDefault = parcelHelpers.interopDefault(_selectionJs);
+var _styleJs = require("./style.js");
+var _styleJsDefault = parcelHelpers.interopDefault(_styleJs);
+var _styleTweenJs = require("./styleTween.js");
+var _styleTweenJsDefault = parcelHelpers.interopDefault(_styleTweenJs);
+var _textJs = require("./text.js");
+var _textJsDefault = parcelHelpers.interopDefault(_textJs);
+var _textTweenJs = require("./textTween.js");
+var _textTweenJsDefault = parcelHelpers.interopDefault(_textTweenJs);
+var _transitionJs = require("./transition.js");
+var _transitionJsDefault = parcelHelpers.interopDefault(_transitionJs);
+var _tweenJs = require("./tween.js");
+var _tweenJsDefault = parcelHelpers.interopDefault(_tweenJs);
+var _endJs = require("./end.js");
+var _endJsDefault = parcelHelpers.interopDefault(_endJs);
+var id = 0;
+function Transition(groups, parents, name, id) {
+    this._groups = groups;
+    this._parents = parents;
+    this._name = name;
+    this._id = id;
+}
+function transition(name) {
+    return (0, _d3Selection.selection)().transition(name);
+}
+exports.default = transition;
+function newId() {
+    return ++id;
+}
+var selection_prototype = (0, _d3Selection.selection).prototype;
+Transition.prototype = transition.prototype = {
+    constructor: Transition,
+    select: (0, _selectJsDefault.default),
+    selectAll: (0, _selectAllJsDefault.default),
+    selectChild: selection_prototype.selectChild,
+    selectChildren: selection_prototype.selectChildren,
+    filter: (0, _filterJsDefault.default),
+    merge: (0, _mergeJsDefault.default),
+    selection: (0, _selectionJsDefault.default),
+    transition: (0, _transitionJsDefault.default),
+    call: selection_prototype.call,
+    nodes: selection_prototype.nodes,
+    node: selection_prototype.node,
+    size: selection_prototype.size,
+    empty: selection_prototype.empty,
+    each: selection_prototype.each,
+    on: (0, _onJsDefault.default),
+    attr: (0, _attrJsDefault.default),
+    attrTween: (0, _attrTweenJsDefault.default),
+    style: (0, _styleJsDefault.default),
+    styleTween: (0, _styleTweenJsDefault.default),
+    text: (0, _textJsDefault.default),
+    textTween: (0, _textTweenJsDefault.default),
+    remove: (0, _removeJsDefault.default),
+    tween: (0, _tweenJsDefault.default),
+    delay: (0, _delayJsDefault.default),
+    duration: (0, _durationJsDefault.default),
+    ease: (0, _easeJsDefault.default),
+    easeVarying: (0, _easeVaryingJsDefault.default),
+    end: (0, _endJsDefault.default),
+    [Symbol.iterator]: selection_prototype[Symbol.iterator]
+};
+
+},{"d3-selection":"gn9gd","./attr.js":"9UgA3","./attrTween.js":"1hMpn","./delay.js":"2BzOF","./duration.js":"ei298","./ease.js":"lCGHM","./easeVarying.js":"aju4f","./filter.js":"d3Uia","./merge.js":"9odBi","./on.js":"3XrBC","./remove.js":"aZLkz","./select.js":"bgUUX","./selectAll.js":"lqPi4","./selection.js":"iWTRA","./style.js":"44QDP","./styleTween.js":"42AvL","./text.js":"6mGEx","./textTween.js":"kqC5z","./transition.js":"50tVR","./tween.js":"1Kbbg","./end.js":"ev0ir","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9UgA3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Interpolate = require("d3-interpolate");
+var _d3Selection = require("d3-selection");
+var _tweenJs = require("./tween.js");
+var _interpolateJs = require("./interpolate.js");
+var _interpolateJsDefault = parcelHelpers.interopDefault(_interpolateJs);
+function attrRemove(name) {
+    return function() {
+        this.removeAttribute(name);
+    };
+}
+function attrRemoveNS(fullname) {
+    return function() {
+        this.removeAttributeNS(fullname.space, fullname.local);
+    };
+}
+function attrConstant(name, interpolate, value1) {
+    var string00, string1 = value1 + "", interpolate0;
+    return function() {
+        var string0 = this.getAttribute(name);
+        return string0 === string1 ? null : string0 === string00 ? interpolate0 : interpolate0 = interpolate(string00 = string0, value1);
+    };
+}
+function attrConstantNS(fullname, interpolate, value1) {
+    var string00, string1 = value1 + "", interpolate0;
+    return function() {
+        var string0 = this.getAttributeNS(fullname.space, fullname.local);
+        return string0 === string1 ? null : string0 === string00 ? interpolate0 : interpolate0 = interpolate(string00 = string0, value1);
+    };
+}
+function attrFunction(name, interpolate, value) {
+    var string00, string10, interpolate0;
+    return function() {
+        var string0, value1 = value(this), string1;
+        if (value1 == null) return void this.removeAttribute(name);
+        string0 = this.getAttribute(name);
+        string1 = value1 + "";
+        return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : (string10 = string1, interpolate0 = interpolate(string00 = string0, value1));
+    };
+}
+function attrFunctionNS(fullname, interpolate, value) {
+    var string00, string10, interpolate0;
+    return function() {
+        var string0, value1 = value(this), string1;
+        if (value1 == null) return void this.removeAttributeNS(fullname.space, fullname.local);
+        string0 = this.getAttributeNS(fullname.space, fullname.local);
+        string1 = value1 + "";
+        return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : (string10 = string1, interpolate0 = interpolate(string00 = string0, value1));
+    };
+}
+exports.default = function(name, value) {
+    var fullname = (0, _d3Selection.namespace)(name), i = fullname === "transform" ? (0, _d3Interpolate.interpolateTransformSvg) : (0, _interpolateJsDefault.default);
+    return this.attrTween(name, typeof value === "function" ? (fullname.local ? attrFunctionNS : attrFunction)(fullname, i, (0, _tweenJs.tweenValue)(this, "attr." + name, value)) : value == null ? (fullname.local ? attrRemoveNS : attrRemove)(fullname) : (fullname.local ? attrConstantNS : attrConstant)(fullname, i, value));
+};
+
+},{"d3-interpolate":"6jJyi","d3-selection":"gn9gd","./tween.js":"1Kbbg","./interpolate.js":"69lgs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1Kbbg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "tweenValue", ()=>tweenValue);
+var _scheduleJs = require("./schedule.js");
+function tweenRemove(id, name) {
+    var tween0, tween1;
+    return function() {
+        var schedule = (0, _scheduleJs.set)(this, id), tween = schedule.tween;
+        // If this node shared tween with the previous node,
+        // just assign the updated shared tween and we’re done!
+        // Otherwise, copy-on-write.
+        if (tween !== tween0) {
+            tween1 = tween0 = tween;
+            for(var i = 0, n = tween1.length; i < n; ++i)if (tween1[i].name === name) {
+                tween1 = tween1.slice();
+                tween1.splice(i, 1);
+                break;
+            }
+        }
+        schedule.tween = tween1;
+    };
+}
+function tweenFunction(id, name, value) {
+    var tween0, tween1;
+    if (typeof value !== "function") throw new Error;
+    return function() {
+        var schedule = (0, _scheduleJs.set)(this, id), tween = schedule.tween;
+        // If this node shared tween with the previous node,
+        // just assign the updated shared tween and we’re done!
+        // Otherwise, copy-on-write.
+        if (tween !== tween0) {
+            tween1 = (tween0 = tween).slice();
+            for(var t = {
+                name: name,
+                value: value
+            }, i = 0, n = tween1.length; i < n; ++i)if (tween1[i].name === name) {
+                tween1[i] = t;
+                break;
+            }
+            if (i === n) tween1.push(t);
+        }
+        schedule.tween = tween1;
+    };
+}
+exports.default = function(name, value) {
+    var id = this._id;
+    name += "";
+    if (arguments.length < 2) {
+        var tween = (0, _scheduleJs.get)(this.node(), id).tween;
+        for(var i = 0, n = tween.length, t; i < n; ++i){
+            if ((t = tween[i]).name === name) return t.value;
+        }
+        return null;
+    }
+    return this.each((value == null ? tweenRemove : tweenFunction)(id, name, value));
+};
+function tweenValue(transition, name, value) {
+    var id = transition._id;
+    transition.each(function() {
+        var schedule = (0, _scheduleJs.set)(this, id);
+        (schedule.value || (schedule.value = {}))[name] = value.apply(this, arguments);
+    });
+    return function(node) {
+        return (0, _scheduleJs.get)(node, id).value[name];
+    };
+}
+
+},{"./schedule.js":"de74c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"69lgs":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Color = require("d3-color");
+var _d3Interpolate = require("d3-interpolate");
+exports.default = function(a, b) {
+    var c;
+    return (typeof b === "number" ? (0, _d3Interpolate.interpolateNumber) : b instanceof (0, _d3Color.color) ? (0, _d3Interpolate.interpolateRgb) : (c = (0, _d3Color.color)(b)) ? (b = c, _d3Interpolate.interpolateRgb) : (0, _d3Interpolate.interpolateString))(a, b);
+};
+
+},{"d3-color":"grhaa","d3-interpolate":"6jJyi","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1hMpn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Selection = require("d3-selection");
+function attrInterpolate(name, i) {
+    return function(t) {
+        this.setAttribute(name, i.call(this, t));
+    };
+}
+function attrInterpolateNS(fullname, i) {
+    return function(t) {
+        this.setAttributeNS(fullname.space, fullname.local, i.call(this, t));
+    };
+}
+function attrTweenNS(fullname, value) {
+    var t0, i0;
+    function tween() {
+        var i = value.apply(this, arguments);
+        if (i !== i0) t0 = (i0 = i) && attrInterpolateNS(fullname, i);
+        return t0;
+    }
+    tween._value = value;
+    return tween;
+}
+function attrTween(name, value) {
+    var t0, i0;
+    function tween() {
+        var i = value.apply(this, arguments);
+        if (i !== i0) t0 = (i0 = i) && attrInterpolate(name, i);
+        return t0;
+    }
+    tween._value = value;
+    return tween;
+}
+exports.default = function(name, value) {
+    var key = "attr." + name;
+    if (arguments.length < 2) return (key = this.tween(key)) && key._value;
+    if (value == null) return this.tween(key, null);
+    if (typeof value !== "function") throw new Error;
+    var fullname = (0, _d3Selection.namespace)(name);
+    return this.tween(key, (fullname.local ? attrTweenNS : attrTween)(fullname, value));
+};
+
+},{"d3-selection":"gn9gd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2BzOF":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./schedule.js");
+function delayFunction(id, value) {
+    return function() {
+        (0, _scheduleJs.init)(this, id).delay = +value.apply(this, arguments);
+    };
+}
+function delayConstant(id, value) {
+    return value = +value, function() {
+        (0, _scheduleJs.init)(this, id).delay = value;
+    };
+}
+exports.default = function(value) {
+    var id = this._id;
+    return arguments.length ? this.each((typeof value === "function" ? delayFunction : delayConstant)(id, value)) : (0, _scheduleJs.get)(this.node(), id).delay;
+};
+
+},{"./schedule.js":"de74c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ei298":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./schedule.js");
+function durationFunction(id, value) {
+    return function() {
+        (0, _scheduleJs.set)(this, id).duration = +value.apply(this, arguments);
+    };
+}
+function durationConstant(id, value) {
+    return value = +value, function() {
+        (0, _scheduleJs.set)(this, id).duration = value;
+    };
+}
+exports.default = function(value) {
+    var id = this._id;
+    return arguments.length ? this.each((typeof value === "function" ? durationFunction : durationConstant)(id, value)) : (0, _scheduleJs.get)(this.node(), id).duration;
+};
+
+},{"./schedule.js":"de74c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lCGHM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./schedule.js");
+function easeConstant(id, value) {
+    if (typeof value !== "function") throw new Error;
+    return function() {
+        (0, _scheduleJs.set)(this, id).ease = value;
+    };
+}
+exports.default = function(value) {
+    var id = this._id;
+    return arguments.length ? this.each(easeConstant(id, value)) : (0, _scheduleJs.get)(this.node(), id).ease;
+};
+
+},{"./schedule.js":"de74c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aju4f":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./schedule.js");
+function easeVarying(id, value) {
+    return function() {
+        var v = value.apply(this, arguments);
+        if (typeof v !== "function") throw new Error;
+        (0, _scheduleJs.set)(this, id).ease = v;
+    };
+}
+exports.default = function(value) {
+    if (typeof value !== "function") throw new Error;
+    return this.each(easeVarying(this._id, value));
+};
+
+},{"./schedule.js":"de74c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d3Uia":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Selection = require("d3-selection");
+var _indexJs = require("./index.js");
+exports.default = function(match) {
+    if (typeof match !== "function") match = (0, _d3Selection.matcher)(match);
+    for(var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, subgroup = subgroups[j] = [], node, i = 0; i < n; ++i)if ((node = group[i]) && match.call(node, node.__data__, i, group)) subgroup.push(node);
+    }
+    return new (0, _indexJs.Transition)(subgroups, this._parents, this._name, this._id);
+};
+
+},{"d3-selection":"gn9gd","./index.js":"h2Srb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9odBi":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./index.js");
+exports.default = function(transition) {
+    if (transition._id !== this._id) throw new Error;
+    for(var groups0 = this._groups, groups1 = transition._groups, m0 = groups0.length, m1 = groups1.length, m = Math.min(m0, m1), merges = new Array(m0), j = 0; j < m; ++j){
+        for(var group0 = groups0[j], group1 = groups1[j], n = group0.length, merge = merges[j] = new Array(n), node, i = 0; i < n; ++i)if (node = group0[i] || group1[i]) merge[i] = node;
+    }
+    for(; j < m0; ++j)merges[j] = groups0[j];
+    return new (0, _indexJs.Transition)(merges, this._parents, this._name, this._id);
+};
+
+},{"./index.js":"h2Srb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3XrBC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./schedule.js");
+function start(name) {
+    return (name + "").trim().split(/^|\s+/).every(function(t) {
+        var i = t.indexOf(".");
+        if (i >= 0) t = t.slice(0, i);
+        return !t || t === "start";
+    });
+}
+function onFunction(id, name, listener) {
+    var on0, on1, sit = start(name) ? (0, _scheduleJs.init) : (0, _scheduleJs.set);
+    return function() {
+        var schedule = sit(this, id), on = schedule.on;
+        // If this node shared a dispatch with the previous node,
+        // just assign the updated shared dispatch and we’re done!
+        // Otherwise, copy-on-write.
+        if (on !== on0) (on1 = (on0 = on).copy()).on(name, listener);
+        schedule.on = on1;
+    };
+}
+exports.default = function(name, listener) {
+    var id = this._id;
+    return arguments.length < 2 ? (0, _scheduleJs.get)(this.node(), id).on.on(name) : this.each(onFunction(id, name, listener));
+};
+
+},{"./schedule.js":"de74c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"aZLkz":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function removeFunction(id) {
+    return function() {
+        var parent = this.parentNode;
+        for(var i in this.__transition)if (+i !== id) return;
+        if (parent) parent.removeChild(this);
+    };
+}
+exports.default = function() {
+    return this.on("end.remove", removeFunction(this._id));
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bgUUX":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Selection = require("d3-selection");
+var _indexJs = require("./index.js");
+var _scheduleJs = require("./schedule.js");
+var _scheduleJsDefault = parcelHelpers.interopDefault(_scheduleJs);
+exports.default = function(select) {
+    var name = this._name, id = this._id;
+    if (typeof select !== "function") select = (0, _d3Selection.selector)(select);
+    for(var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, subgroup = subgroups[j] = new Array(n), node, subnode, i = 0; i < n; ++i)if ((node = group[i]) && (subnode = select.call(node, node.__data__, i, group))) {
+            if ("__data__" in node) subnode.__data__ = node.__data__;
+            subgroup[i] = subnode;
+            (0, _scheduleJsDefault.default)(subgroup[i], name, id, i, subgroup, (0, _scheduleJs.get)(node, id));
+        }
+    }
+    return new (0, _indexJs.Transition)(subgroups, this._parents, name, id);
+};
+
+},{"d3-selection":"gn9gd","./index.js":"h2Srb","./schedule.js":"de74c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lqPi4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Selection = require("d3-selection");
+var _indexJs = require("./index.js");
+var _scheduleJs = require("./schedule.js");
+var _scheduleJsDefault = parcelHelpers.interopDefault(_scheduleJs);
+exports.default = function(select) {
+    var name = this._name, id = this._id;
+    if (typeof select !== "function") select = (0, _d3Selection.selectorAll)(select);
+    for(var groups = this._groups, m = groups.length, subgroups = [], parents = [], j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, node, i = 0; i < n; ++i)if (node = group[i]) {
+            for(var children = select.call(node, node.__data__, i, group), child, inherit = (0, _scheduleJs.get)(node, id), k = 0, l = children.length; k < l; ++k)if (child = children[k]) (0, _scheduleJsDefault.default)(child, name, id, k, children, inherit);
+            subgroups.push(children);
+            parents.push(node);
+        }
+    }
+    return new (0, _indexJs.Transition)(subgroups, parents, name, id);
+};
+
+},{"d3-selection":"gn9gd","./index.js":"h2Srb","./schedule.js":"de74c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iWTRA":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Selection = require("d3-selection");
+var Selection = (0, _d3Selection.selection).prototype.constructor;
+exports.default = function() {
+    return new Selection(this._groups, this._parents);
+};
+
+},{"d3-selection":"gn9gd","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"44QDP":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _d3Interpolate = require("d3-interpolate");
+var _d3Selection = require("d3-selection");
+var _scheduleJs = require("./schedule.js");
+var _tweenJs = require("./tween.js");
+var _interpolateJs = require("./interpolate.js");
+var _interpolateJsDefault = parcelHelpers.interopDefault(_interpolateJs);
+function styleNull(name, interpolate) {
+    var string00, string10, interpolate0;
+    return function() {
+        var string0 = (0, _d3Selection.style)(this, name), string1 = (this.style.removeProperty(name), (0, _d3Selection.style)(this, name));
+        return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : interpolate0 = interpolate(string00 = string0, string10 = string1);
+    };
+}
+function styleRemove(name) {
+    return function() {
+        this.style.removeProperty(name);
+    };
+}
+function styleConstant(name, interpolate, value1) {
+    var string00, string1 = value1 + "", interpolate0;
+    return function() {
+        var string0 = (0, _d3Selection.style)(this, name);
+        return string0 === string1 ? null : string0 === string00 ? interpolate0 : interpolate0 = interpolate(string00 = string0, value1);
+    };
+}
+function styleFunction(name, interpolate, value) {
+    var string00, string10, interpolate0;
+    return function() {
+        var string0 = (0, _d3Selection.style)(this, name), value1 = value(this), string1 = value1 + "";
+        if (value1 == null) string1 = value1 = (this.style.removeProperty(name), (0, _d3Selection.style)(this, name));
+        return string0 === string1 ? null : string0 === string00 && string1 === string10 ? interpolate0 : (string10 = string1, interpolate0 = interpolate(string00 = string0, value1));
+    };
+}
+function styleMaybeRemove(id, name) {
+    var on0, on1, listener0, key = "style." + name, event = "end." + key, remove;
+    return function() {
+        var schedule = (0, _scheduleJs.set)(this, id), on = schedule.on, listener = schedule.value[key] == null ? remove || (remove = styleRemove(name)) : undefined;
+        // If this node shared a dispatch with the previous node,
+        // just assign the updated shared dispatch and we’re done!
+        // Otherwise, copy-on-write.
+        if (on !== on0 || listener0 !== listener) (on1 = (on0 = on).copy()).on(event, listener0 = listener);
+        schedule.on = on1;
+    };
+}
+exports.default = function(name, value, priority) {
+    var i = (name += "") === "transform" ? (0, _d3Interpolate.interpolateTransformCss) : (0, _interpolateJsDefault.default);
+    return value == null ? this.styleTween(name, styleNull(name, i)).on("end.style." + name, styleRemove(name)) : typeof value === "function" ? this.styleTween(name, styleFunction(name, i, (0, _tweenJs.tweenValue)(this, "style." + name, value))).each(styleMaybeRemove(this._id, name)) : this.styleTween(name, styleConstant(name, i, value), priority).on("end.style." + name, null);
+};
+
+},{"d3-interpolate":"6jJyi","d3-selection":"gn9gd","./schedule.js":"de74c","./tween.js":"1Kbbg","./interpolate.js":"69lgs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"42AvL":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function styleInterpolate(name, i, priority) {
+    return function(t) {
+        this.style.setProperty(name, i.call(this, t), priority);
+    };
+}
+function styleTween(name, value, priority) {
+    var t, i0;
+    function tween() {
+        var i = value.apply(this, arguments);
+        if (i !== i0) t = (i0 = i) && styleInterpolate(name, i, priority);
+        return t;
+    }
+    tween._value = value;
+    return tween;
+}
+exports.default = function(name, value, priority) {
+    var key = "style." + (name += "");
+    if (arguments.length < 2) return (key = this.tween(key)) && key._value;
+    if (value == null) return this.tween(key, null);
+    if (typeof value !== "function") throw new Error;
+    return this.tween(key, styleTween(name, value, priority == null ? "" : priority));
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"6mGEx":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _tweenJs = require("./tween.js");
+function textConstant(value) {
+    return function() {
+        this.textContent = value;
+    };
+}
+function textFunction(value) {
+    return function() {
+        var value1 = value(this);
+        this.textContent = value1 == null ? "" : value1;
+    };
+}
+exports.default = function(value) {
+    return this.tween("text", typeof value === "function" ? textFunction((0, _tweenJs.tweenValue)(this, "text", value)) : textConstant(value == null ? "" : value + ""));
+};
+
+},{"./tween.js":"1Kbbg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kqC5z":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+function textInterpolate(i) {
+    return function(t) {
+        this.textContent = i.call(this, t);
+    };
+}
+function textTween(value) {
+    var t0, i0;
+    function tween() {
+        var i = value.apply(this, arguments);
+        if (i !== i0) t0 = (i0 = i) && textInterpolate(i);
+        return t0;
+    }
+    tween._value = value;
+    return tween;
+}
+exports.default = function(value) {
+    var key = "text";
+    if (arguments.length < 1) return (key = this.tween(key)) && key._value;
+    if (value == null) return this.tween(key, null);
+    if (typeof value !== "function") throw new Error;
+    return this.tween(key, textTween(value));
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"50tVR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _indexJs = require("./index.js");
+var _scheduleJs = require("./schedule.js");
+var _scheduleJsDefault = parcelHelpers.interopDefault(_scheduleJs);
+exports.default = function() {
+    var name = this._name, id0 = this._id, id1 = (0, _indexJs.newId)();
+    for(var groups = this._groups, m = groups.length, j = 0; j < m; ++j){
+        for(var group = groups[j], n = group.length, node, i = 0; i < n; ++i)if (node = group[i]) {
+            var inherit = (0, _scheduleJs.get)(node, id0);
+            (0, _scheduleJsDefault.default)(node, name, id1, i, group, {
+                time: inherit.time + inherit.delay + inherit.duration,
+                delay: 0,
+                duration: inherit.duration,
+                ease: inherit.ease
+            });
+        }
+    }
+    return new (0, _indexJs.Transition)(groups, this._parents, name, id1);
+};
+
+},{"./index.js":"h2Srb","./schedule.js":"de74c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ev0ir":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _scheduleJs = require("./schedule.js");
+exports.default = function() {
+    var on0, on1, that = this, id = that._id, size = that.size();
+    return new Promise(function(resolve, reject) {
+        var cancel = {
+            value: reject
+        }, end = {
+            value: function() {
+                if (--size === 0) resolve();
+            }
+        };
+        that.each(function() {
+            var schedule = (0, _scheduleJs.set)(this, id), on = schedule.on;
+            // If this node shared a dispatch with the previous node,
+            // just assign the updated shared dispatch and we’re done!
+            // Otherwise, copy-on-write.
+            if (on !== on0) {
+                on1 = (on0 = on).copy();
+                on1._.cancel.push(cancel);
+                on1._.interrupt.push(cancel);
+                on1._.end.push(end);
+            }
+            schedule.on = on1;
+        });
+        // The selection was empty, resolve end immediately
+        if (size === 0) resolve();
+    });
+};
+
+},{"./schedule.js":"de74c","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8sCNl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "easeLinear", ()=>(0, _linearJs.linear));
+parcelHelpers.export(exports, "easeQuad", ()=>(0, _quadJs.quadInOut));
+parcelHelpers.export(exports, "easeQuadIn", ()=>(0, _quadJs.quadIn));
+parcelHelpers.export(exports, "easeQuadOut", ()=>(0, _quadJs.quadOut));
+parcelHelpers.export(exports, "easeQuadInOut", ()=>(0, _quadJs.quadInOut));
+parcelHelpers.export(exports, "easeCubic", ()=>(0, _cubicJs.cubicInOut));
+parcelHelpers.export(exports, "easeCubicIn", ()=>(0, _cubicJs.cubicIn));
+parcelHelpers.export(exports, "easeCubicOut", ()=>(0, _cubicJs.cubicOut));
+parcelHelpers.export(exports, "easeCubicInOut", ()=>(0, _cubicJs.cubicInOut));
+parcelHelpers.export(exports, "easePoly", ()=>(0, _polyJs.polyInOut));
+parcelHelpers.export(exports, "easePolyIn", ()=>(0, _polyJs.polyIn));
+parcelHelpers.export(exports, "easePolyOut", ()=>(0, _polyJs.polyOut));
+parcelHelpers.export(exports, "easePolyInOut", ()=>(0, _polyJs.polyInOut));
+parcelHelpers.export(exports, "easeSin", ()=>(0, _sinJs.sinInOut));
+parcelHelpers.export(exports, "easeSinIn", ()=>(0, _sinJs.sinIn));
+parcelHelpers.export(exports, "easeSinOut", ()=>(0, _sinJs.sinOut));
+parcelHelpers.export(exports, "easeSinInOut", ()=>(0, _sinJs.sinInOut));
+parcelHelpers.export(exports, "easeExp", ()=>(0, _expJs.expInOut));
+parcelHelpers.export(exports, "easeExpIn", ()=>(0, _expJs.expIn));
+parcelHelpers.export(exports, "easeExpOut", ()=>(0, _expJs.expOut));
+parcelHelpers.export(exports, "easeExpInOut", ()=>(0, _expJs.expInOut));
+parcelHelpers.export(exports, "easeCircle", ()=>(0, _circleJs.circleInOut));
+parcelHelpers.export(exports, "easeCircleIn", ()=>(0, _circleJs.circleIn));
+parcelHelpers.export(exports, "easeCircleOut", ()=>(0, _circleJs.circleOut));
+parcelHelpers.export(exports, "easeCircleInOut", ()=>(0, _circleJs.circleInOut));
+parcelHelpers.export(exports, "easeBounce", ()=>(0, _bounceJs.bounceOut));
+parcelHelpers.export(exports, "easeBounceIn", ()=>(0, _bounceJs.bounceIn));
+parcelHelpers.export(exports, "easeBounceOut", ()=>(0, _bounceJs.bounceOut));
+parcelHelpers.export(exports, "easeBounceInOut", ()=>(0, _bounceJs.bounceInOut));
+parcelHelpers.export(exports, "easeBack", ()=>(0, _backJs.backInOut));
+parcelHelpers.export(exports, "easeBackIn", ()=>(0, _backJs.backIn));
+parcelHelpers.export(exports, "easeBackOut", ()=>(0, _backJs.backOut));
+parcelHelpers.export(exports, "easeBackInOut", ()=>(0, _backJs.backInOut));
+parcelHelpers.export(exports, "easeElastic", ()=>(0, _elasticJs.elasticOut));
+parcelHelpers.export(exports, "easeElasticIn", ()=>(0, _elasticJs.elasticIn));
+parcelHelpers.export(exports, "easeElasticOut", ()=>(0, _elasticJs.elasticOut));
+parcelHelpers.export(exports, "easeElasticInOut", ()=>(0, _elasticJs.elasticInOut));
+var _linearJs = require("./linear.js");
+var _quadJs = require("./quad.js");
+var _cubicJs = require("./cubic.js");
+var _polyJs = require("./poly.js");
+var _sinJs = require("./sin.js");
+var _expJs = require("./exp.js");
+var _circleJs = require("./circle.js");
+var _bounceJs = require("./bounce.js");
+var _backJs = require("./back.js");
+var _elasticJs = require("./elastic.js");
+
+},{"./linear.js":false,"./quad.js":false,"./cubic.js":"cGjk7","./poly.js":false,"./sin.js":false,"./exp.js":false,"./circle.js":false,"./bounce.js":false,"./back.js":false,"./elastic.js":false,"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cGjk7":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "cubicIn", ()=>cubicIn);
+parcelHelpers.export(exports, "cubicOut", ()=>cubicOut);
+parcelHelpers.export(exports, "cubicInOut", ()=>cubicInOut);
+function cubicIn(t) {
+    return t * t * t;
+}
+function cubicOut(t) {
+    return --t * t * t + 1;
+}
+function cubicInOut(t) {
+    return ((t *= 2) <= 1 ? t * t * t : (t -= 2) * t * t + 2) / 2;
+}
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["9tRox","1SICI"], "1SICI", "parcelRequire94c2")
 

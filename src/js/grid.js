@@ -3,8 +3,10 @@ export const createGrid = (data, colArray, rowHeight, breakPoints) => {
   const padding = 30;
   const container = breakPoints[0];
   const svgWidth = window.innerWidth >= container
-    ? container - 2 * padding
-    : window.innerWidth - 2 * padding;
+    ? 0.8333 * container - 2 * padding
+    : window.innerWidth > 768
+      ? 0.8333 * window.innerWidth - 2 * padding
+      : window.innerWidth - 2 * padding;
 
   let numColumns;
   switch (true) {
@@ -45,7 +47,6 @@ export const createGrid = (data, colArray, rowHeight, breakPoints) => {
     }
   }
 
-  console.log("annotatedData", annotatedData);
   return annotatedData;
 
 };
